@@ -22,36 +22,36 @@ Consequently, the code that displays the vehicle details needs to fetch informat
 
 Each service is:
 
-* Highly maintainable and testable - enables rapid and frequent development and deployment
-* Loosely coupled with other services - enables a team to work independently the majority of time on their service(s) without being impacted by changes to other services and without affecting other services
-* Independently deployable - enables a team to deploy their service without having to coordinate with other teams
-* Capable of being developed by a small team - essential for high productivity by avoiding the high communication head of large teams
-* Services communicate using either synchronous protocols such as HTTP/REST or asynchronous protocols such as AMQP. 
-* Services can be developed and deployed independently of one another. 
-* Each service has its own database in order to be decoupled from other services. 
-* Data consistency between services is maintained using the Saga pattern
-* Client-side Discovery pattern or Server-side Discovery pattern to route requests to available service instances.
-* The API Gateway authenticate the user and pass an Access Token containing information about the user to the services
-* API Gateway  use a Circuit Breaker to invoke services
-* API gateway often implements the API Composition pattern
-* Asynchronous Java API + Reactive Programming Model
-* Hystrix Fault Tolerance.
+:star: Highly maintainable and testable - enables rapid and frequent development and deployment
+:bulb: Loosely coupled with other services - enables a team to work independently the majority of time on their service(s) without being impacted by changes to other services and without affecting other services
+:bulb: Independently deployable - enables a team to deploy their service without having to coordinate with other teams
+:bulb: Capable of being developed by a small team - essential for high productivity by avoiding the high communication head of large teams
+:bulb: Services communicate using either synchronous protocols such as HTTP/REST or asynchronous protocols such as AMQP. 
+:bulb: Services can be developed and deployed independently of one another. 
+:bulb: Each service has its own database in order to be decoupled from other services. 
+:bulb: Data consistency between services is maintained using the Saga pattern
+:bulb: Client-side Discovery pattern or Server-side Discovery pattern to route requests to available service instances.
+:bulb: The API Gateway authenticate the user and pass an Access Token containing information about the user to the services
+:bulb: API Gateway  use a Circuit Breaker to invoke services
+:bulb: API gateway often implements the API Composition pattern
+:bulb: Asynchronous Java API + Reactive Programming Model
+:bulb: Hystrix Fault Tolerance.
 
 ###### Tutorial http://rcherara.ca/microservices-with-spring-cloud/
 
 ## Modules:
 
-* discovery-service
-* gateway-service
-* config-service
-* config
-* vehicle-service
-* dealership-service
-* transaction-service
-* hystrix-dashboard
-* monitor
-* zipkin
-* auth-server
+- [x] discovery-service
+- [x] gateway-service
+- [x] config-service
+- [ ] config
+- [x] vehicle-service
+- [ ] dealership-service
+- [ ] transaction-service
+- [ ] hystrix-dashboard
+- [ ] monitor
+- [ ] zipkin
+- [ ] auth-server
 
 ## Building and running the application
 
@@ -69,13 +69,17 @@ First, must sign up to get your credentials in order to get free access to the S
 
 Next, build the application
 
-cd java-server
-./gradlew assemble
+```
+git clone https://github.com/Reddah-Cherara/rcherara-spring-cloud-microservice.git
+cd rcherara-spring-cloud-microservice
+mvn install
+```
 
 Next, you can launch the services using Docker Compose:
 
-cd java-server/docker-microservices
-docker-compose up -d
+```
+ $ docker-compose up -d
+```
 
 # Using the Swagger UI
 The services are Swagger "enabled".
@@ -93,29 +97,36 @@ Swagger docs endpoint: http://localhost:<SERVICE-PORT>/v2/api-docs
 
 # Vehicle service
 To run locally:
+```
 mvn install
 java -jar target/vehicle-service-0.0.1.BUILD-SNAPSHOT.jar
-
+```
 # Dealership service
 To run locally:
+```
 mvn install
 java -jar target/dealership-service-0.0.1.BUILD-SNAPSHOT.jar
+```
 
 # Gateway service
 To run locally:
+```
 mvn install
 java -jar target/gateway-service-0.0.1.BUILD-SNAPSHOT.jar
+```
 
 # Discovery
 To run locally:
+```
 mvn install
 java -jar target/discovery-service-0.0.1.BUILD-SNAPSHOT.jar
-
+```
 # Hystrix Dashboard
 To run locally:
+```
 mvn install
 java -jar target/hystrix-dashboard-0.0.1.BUILD-SNAPSHOT.jar
-
+```
 
 ### Guides
 The following guides illustrate how to use some features concretely:
