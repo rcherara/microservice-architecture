@@ -22,9 +22,8 @@ Consequently, the code that displays the vehicle details needs to fetch informat
 
 Each service is:
 
-:bulb: Highly maintainable and testable - enables rapid and frequent development and deployment.
-
-:bulb: Loosely coupled with other services - enables a team to work independently the majority of time on their service(s) without being impacted by changes to other services and without affecting other services.
+:small_orange_diamond: Highly maintainable and testable - enables rapid and frequent development and deployment.
+:small_orange_diamond: Loosely coupled with other services - enables a team to work independently the majority of time on their service(s) without being impacted by changes to other services and without affecting other services.
 
 :bulb: Independently deployable - enables a team to deploy their service without having to coordinate with other teams
 
