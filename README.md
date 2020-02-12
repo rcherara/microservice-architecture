@@ -22,19 +22,32 @@ Consequently, the code that displays the vehicle details needs to fetch informat
 
 Each service is:
 
-:star: Highly maintainable and testable - enables rapid and frequent development and deployment
-:bulb: Loosely coupled with other services - enables a team to work independently the majority of time on their service(s) without being impacted by changes to other services and without affecting other services
+:bulb: Highly maintainable and testable - enables rapid and frequent development and deployment.
+
+:bulb: Loosely coupled with other services - enables a team to work independently the majority of time on their service(s) without being impacted by changes to other services and without affecting other services.
+
 :bulb: Independently deployable - enables a team to deploy their service without having to coordinate with other teams
+
 :bulb: Capable of being developed by a small team - essential for high productivity by avoiding the high communication head of large teams
-:bulb: Services communicate using either synchronous protocols such as HTTP/REST or asynchronous protocols such as AMQP. 
-:bulb: Services can be developed and deployed independently of one another. 
+
+:bulb: Services communicate using either synchronous protocols such as HTTP/REST or asynchronous protocols such as AMQP.
+
+:bulb: Services can be developed and deployed independently of one another.
+
 :bulb: Each service has its own database in order to be decoupled from other services. 
+
 :bulb: Data consistency between services is maintained using the Saga pattern
+
 :bulb: Client-side Discovery pattern or Server-side Discovery pattern to route requests to available service instances.
+
 :bulb: The API Gateway authenticate the user and pass an Access Token containing information about the user to the services
+
 :bulb: API Gateway  use a Circuit Breaker to invoke services
-:bulb: API gateway often implements the API Composition pattern
-:bulb: Asynchronous Java API + Reactive Programming Model
+
+:bulb: API gateway often implements the API Composition pattern.
+
+:bulb: Asynchronous Java API + Reactive Programming Model.
+
 :bulb: Hystrix Fault Tolerance.
 
 ###### Tutorial http://rcherara.ca/microservices-with-spring-cloud/
