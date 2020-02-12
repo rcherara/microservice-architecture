@@ -1,17 +1,6 @@
-# Microservices with SpringCloud
+# Microservices with Spring Cloud
 
-## Architecture
-
-The following diagram shows the application architecture:
-
-TODO :
-
-* Client-side Discovery pattern or Server-side Discovery pattern to route requests to available service instances.
-* The API Gateway authenticate the user and pass an Access Token containing information about the user to the services
-* API Gateway  use a Circuit Breaker to invoke services
-* API gateway often implements the API Composition pattern
-* Asynchronous Java API + Reactive Programming Model
-* Hystrix Fault Tolerance.
+This example is an application for a car dealer based on a microservices architecture.
 
 The architecture supports the following technologies: 
   * Frameworks - Spring Boot and Micronaut
@@ -19,9 +8,38 @@ The architecture supports the following technologies:
   * Message brokers - Apache Kafka, ActiveMQ, RabbitMQ, and Redis Streams
   * Services communicate asynchronously using domain events, and command/reply messages.
 
-###### tutorial http://rcherara.ca/microservices-with-spring-cloud/
+## Architecture
+The following diagram shows the application architecture:
+###### TODO : insert picture of diagram
 
-Include module:
+Since an auto dealership application uses theMicroservice architecture pattern for vehicle details data is spread over multiple services. For example,
+
+- Vehicle Service - basic information about the vehicle, 
+- Transaction service - purchase history for vehicle, vehicle price
+- Dealership service - vehicle availability,oOrder processing, stock
+
+Consequently, the code that displays the vehicle details needs to fetch information from all of these services.
+
+Each service is:
+
+* Highly maintainable and testable - enables rapid and frequent development and deployment
+* Loosely coupled with other services - enables a team to work independently the majority of time on their service(s) without being impacted by changes to other services and without affecting other services
+* Independently deployable - enables a team to deploy their service without having to coordinate with other teams
+* Capable of being developed by a small team - essential for high productivity by avoiding the high communication head of large teams
+* Services communicate using either synchronous protocols such as HTTP/REST or asynchronous protocols such as AMQP. 
+* Services can be developed and deployed independently of one another. 
+* Each service has its own database in order to be decoupled from other services. 
+* Data consistency between services is maintained using the Saga pattern
+* Client-side Discovery pattern or Server-side Discovery pattern to route requests to available service instances.
+* The API Gateway authenticate the user and pass an Access Token containing information about the user to the services
+* API Gateway  use a Circuit Breaker to invoke services
+* API gateway often implements the API Composition pattern
+* Asynchronous Java API + Reactive Programming Model
+* Hystrix Fault Tolerance.
+
+###### Tutorial http://rcherara.ca/microservices-with-spring-cloud/
+
+## Modules:
 
 * discovery-service
 * gateway-service
@@ -29,7 +47,7 @@ Include module:
 * config
 * vehicle-service
 * dealership-service
-* transaction-client
+* transaction-service
 * hystrix-dashboard
 * monitor
 * zipkin
@@ -37,9 +55,13 @@ Include module:
 
 ## Building and running the application
 
-This is a Maven project. However, you do not need to install Gradle since it will be downloaded automatically. You just need to have Java 11 installed.
+This is a Maven project. However, you  need to have Java 11, Docker,and Maven installed.
 
-The details of how to build and run the services depend slightly on whether you are using  SaaS or Local.
+The details of how to build and run the services depend slightly on whether you are using  
+  - SaaS (Software as a Service)
+  - IaaS (Infrastructure as a service)
+  - PaaS (Platform as a Service)
+  - Local.
 
 ## Building and running using SaaS
 
@@ -100,7 +122,7 @@ The following guides illustrate how to use some features concretely:
 * [Pattern: API Gateway / Backends for Frontends](https://microservices.io/patterns/apigateway.html)
 * [Pattern: Microservice Architecture](https://microservices.io/patterns/microservices.html/)
 * [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/)
-* [Event-Driven Data Management for Microservices] : (https://www.nginx.com/blog/event-driven-data-management-microservices/)
+* [Event-Driven Data Management for Microservices](https://www.nginx.com/blog/event-driven-data-management-microservices/)
 * [Asynchronous microservices](http://eventuate.io/whyeventdriven.html)
 
 ### Reference
@@ -110,12 +132,14 @@ The following guides illustrate how to use some features concretely:
 4. [About Spring cloud security OAuth2](http://blog.spring-cloud.io/blog/oauth-authorize.html)
 5. [Dive into Eureka – nobodyiam's blog](http://nobodyiam.com/2016/06/25/dive-into-eureka/)
 6. [About Spring cloud security OAuth2](http://blog.spring-cloud.io/blog/oauth-authorize.html)
+7. [Synthesis-Based Software Architecture Design](https://slideplayer.com/slide/1672922/)
 
 ### Got questions?
 Don't hesitate to create an issue or contact me.
 
 ### Author
 CHERARA REDDAH.
-[Cherara Reddah linkedin](https://www.linkedin.com/in/cherarareddah/)
-[Cherara Reddah blog](https://rcherara.ca)
+
+* [Cherara Reddah linkedin](https://www.linkedin.com/in/cherarareddah/)
+* [Cherara Reddah blog](https://rcherara.ca)
 
