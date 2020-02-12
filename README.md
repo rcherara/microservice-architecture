@@ -6,15 +6,30 @@ The following diagram shows the application architecture:
 
 TODO :
 
-###### tutorial http://rcherara.ca/posts/microservice-with-springcloud
+* Client-side Discovery pattern or Server-side Discovery pattern to route requests to available service instances.
+* The API Gateway authenticate the user and pass an Access Token containing information about the user to the services
+* API Gateway  use a Circuit Breaker to invoke services
+* API gateway often implements the API Composition pattern
+* Asynchronous Java API + Reactive Programming Model
+* Hystrix Fault Tolerance.
 
-include module:
+The architecture supports the following technologies: 
+  * Frameworks - Spring Boot and Micronaut
+  * Databases - MySQL, Postgres, and Microsoft SQL server
+  * Message brokers - Apache Kafka, ActiveMQ, RabbitMQ, and Redis Streams
+  * Services communicate asynchronously using domain events, and command/reply messages.
+
+###### tutorial http://rcherara.ca/microservices-with-spring-cloud/
+
+Include module:
+
 * discovery-service
 * gateway-service
 * config-service
 * config
 * vehicle-service
-* reservation-client
+* dealership-service
+* transaction-client
 * hystrix-dashboard
 * monitor
 * zipkin
@@ -41,57 +56,54 @@ cd java-server/docker-microservices
 docker-compose up -d
 
 # Using the Swagger UI
-
 The services are Swagger "enabled".
-
 Open the url http://${DOCKER_HOST_IP}:<SERVICE-PORT>/swagger-ui.html
-  
 All Swagger Resources(groups) : http://localhost:<SERVICE-PORT>/swagger-resources
-Swagger UI endpoint: http://localhost:<SERVICE-PORT>swagger-ui.html
+Swagger UI endpoint: http://localhost:<SERVICE-PORT>/swagger-ui.html
 Swagger docs endpoint: http://localhost:<SERVICE-PORT>/v2/api-docs
 
-# Monitor the services configuration 
-  
-- dealership-service
+# Monitor services configuration 
+- Dealership-service   : curl -s http://localhost:<SERVICE-PORT>/monitor/dealership-service | jq '.'
+- Discovery-service.   : curl -s http://localhost:<SERVICE-PORT>/monitor/discovery-service | jq '.'
+- Gateway-service.     : curl -s http://localhost:<SERVICE-PORT>/monitor/gateway-service | jq '.'
+- Transaction-service. : curl -s http://localhost:<SERVICE-PORT>/monitor/transaction-service | jq '.'
+- Vehicle-service.yml. : curl -s http://localhost:<SERVICE-PORT>/monitor/vehicle-service | jq '.'
 
-curl -s http://localhost:8888/monitor/dealership-service | jq '.'
+# Vehicle service
+To run locally:
+mvn install
+java -jar target/vehicle-service-0.0.1.BUILD-SNAPSHOT.jar
 
-- discovery-service
+# Dealership service
+To run locally:
+mvn install
+java -jar target/dealership-service-0.0.1.BUILD-SNAPSHOT.jar
 
-curl -s http://localhost:8888/monitor/discovery-service | jq '.'
+# Gateway service
+To run locally:
+mvn install
+java -jar target/gateway-service-0.0.1.BUILD-SNAPSHOT.jar
 
-- gateway-service
+# Discovery
+To run locally:
+mvn install
+java -jar target/discovery-service-0.0.1.BUILD-SNAPSHOT.jar
 
-curl -s http://localhost:8888/monitor/gateway-service | jq '.'
-
-- proxy-service
-
-curl -s http://localhost:8888/monitor/proxy-service | jq '.'
-
-- transaction-service
-
-curl -s http://localhost:8888/monitor/transaction-service | jq '.'
-
-- vehicle-service.yml
-
-curl -s http://localhost:8888/monitor/vehicle-service | jq '.'
-  
 # Hystrix Dashboard
 To run locally:
-
 mvn install
 java -jar target/hystrix-dashboard-0.0.1.BUILD-SNAPSHOT.jar
 
+
 ### Guides
 The following guides illustrate how to use some features concretely:
-
+* [Pattern: API Gateway / Backends for Frontends](https://microservices.io/patterns/apigateway.html)
+* [Pattern: Microservice Architecture](https://microservices.io/patterns/microservices.html/)
 * [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/)
-* 
-* 
-* 
+* [Event-Driven Data Management for Microservices] : (https://www.nginx.com/blog/event-driven-data-management-microservices/)
+* [Asynchronous microservices](http://eventuate.io/whyeventdriven.html)
 
 ### Reference
-
 1. [Pattern: Microservice Architecture](https://microservices.io/patterns/microservices.html/)
 2. [Spring Cloud Tutorial - Spring Cloud Gateway Hello World Example](https://www.javainuse.com/spring/cloud-gateway)
 3. [Installing minishift on macos – Cherara Reddag blog](rcherara.ca/installing-minishift-on-macos/)
@@ -99,10 +111,11 @@ The following guides illustrate how to use some features concretely:
 5. [Dive into Eureka – nobodyiam's blog](http://nobodyiam.com/2016/06/25/dive-into-eureka/)
 6. [About Spring cloud security OAuth2](http://blog.spring-cloud.io/blog/oauth-authorize.html)
 
-# Got questions?
-
+### Got questions?
 Don't hesitate to create an issue or contact me.
 
-# Author
+### Author
+CHERARA REDDAH.
+[Cherara Reddah linkedin](https://www.linkedin.com/in/cherarareddah/)
+[Cherara Reddah blog](https://rcherara.ca)
 
-Cherara Reddah 
