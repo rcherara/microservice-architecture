@@ -1,0 +1,24 @@
+node('rcherara-node') {
+  withMaven(maven:'M3') {
+    stage('Checkout') {
+      git url: 'https://github.com/Reddah-Cherara/rcherara-spring-cloud-microservice.git', credentialsId: 'cherara.reddah@icloud.com', branch: 'master'
+    }
+    stage('Build') {
+      dir('config-service') {
+        sh 'mvn clean install'
+        def pom = readMavenPom file:'pom.xml'
+        print pom.version
+        env.version = pom.version
+        currentBuild.description = "Release: ${env.version}"
+      }
+    }
+    stage('Image') {
+      dir ('config-service') {
+        docker.withRegistry('http://rcherara.com:5000') {
+          def app = docker.build "rcherara/config-service:${env.version}"
+          app.push()
+        }
+      }
+    }
+  }
+}
