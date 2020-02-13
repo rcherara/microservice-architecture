@@ -70,6 +70,37 @@ Next, you can launch the services using Docker Compose:
  $ docker-compose up -d
 ```
 
+# Spring Cloud Config Server
+
+Spring Cloud Config Server offers the following benefits:
+
+HTTP resource-based API for external configuration (name-value pairs or equivalent YAML content)
+
+Encrypt and decrypt property values (symmetric or asymmetric)
+
+Embeddable easily in a Spring Boot application using @EnableConfigServer
+# Spring Cloud Config Client
+
+Specifically for Spring applications, Spring Cloud Config Client lets you:
+
+Bind to the Config Server and initialize Spring Environment with remote property sources.
+
+Encrypt and decrypt property values (symmetric or asymmetric).
+
+@RefreshScope for Spring @Beans that want to be re-initialized when configuration changes.
+
+Use management endpoints:
+
+/env for updating Environment and rebinding @ConfigurationProperties and log levels.
+
+/refresh for refreshing the @RefreshScope beans.
+
+/restart for restarting the Spring context (disabled by default).
+
+/pause and /resume for calling the Lifecycle methods (stop() and start() on the ApplicationContext).
+
+Bootstrap application context: a parent context for the main application that can be trained to do anything (by default, it binds to the Config Server and decrypts property values).
+
 # Using the Swagger UI
 The services are Swagger "enabled".
 Open the url http://${DOCKER_HOST_IP}:<SERVICE-PORT>/swagger-ui.html
