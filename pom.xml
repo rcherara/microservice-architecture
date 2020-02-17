@@ -8,10 +8,10 @@
 	<modules>
 	    <module>config-service</module>
 		<module>discovery-service</module>
-		<module>gateway-service</module>
-		<module>services-admin-service</module>
-		<module>dealership-service</module>			
-		<module>vehicle-service</module>		
-		<module>transaction-service</module>					
+		<!-- <module>gateway-service</module> -->
+		<!-- <module>services-admin-service</module> -->
+		<!-- <module>dealership-service</module>			 -->
+		<!-- <module>vehicle-service</module>		 -->
+		<!-- <module>transaction-service</module>					 -->
 	</modules>	
 </project>
