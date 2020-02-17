@@ -1,5 +1,18 @@
-spring:
-  profiles:
-    active: native
+server: # Config Server Configurations
+  port: ${PORT:1111}
+# spring.cloud.config.server.git.basedir = /Users/rcherara/Projects/cloud-configuration-repository
+
+spring: # Spring Cloud CLI standard port for config-server
   application:
     name: config-service
+  cloud:
+    config:
+      server:
+        composite:
+          - type: git
+            uri: file:/Users/rcherara/Projects/cloud-configuration-repository
+          - type: git
+            uri: https://github.com/Reddah-Cherara/cloud-configuration-repository.git
+        bootstrap: true
+  profiles:
+    active: composite
