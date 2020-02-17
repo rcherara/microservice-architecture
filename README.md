@@ -1,4 +1,8 @@
+
+![Java CI](https://github.com/Reddah-Cherara/building-a-microservice-architecture/workflows/Java%20CI/badge.svg?branch=master)
+
 # Best Practices of a Microservice Architecture with Spring Cloud, CI, CD and IaC
+
 
 This example is an eco-system  for a car dealer based on a microservices architecture.
 
