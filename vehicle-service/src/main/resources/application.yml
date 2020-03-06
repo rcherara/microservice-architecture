@@ -1,0 +1,57 @@
+server:
+  port: ${CONFIG_PORT:8081}
+spring:
+  application: #app discovery  config
+    name: Vehicle-Service
+  cloud:
+    config:
+      uri: http://${CONFIG_SERVICE:localhost}:${CONFIG_PORT:7761}
+      fail-fast: true
+      username: ${CONFIG_SERVICE_USER:admin}
+      password: ${CONFIG_SERVICE_PASSWORD:admin}
+  boot:
+    admin:
+      client: #configs to connect to a secured server
+        url: http://localhost:9761/
+        instance:
+          service-base-url: http://localhost:9761
+          #username: admin
+          #password: admin
+          metadata: #configs to give secured server info
+            user:
+              name: ${spring.security.user.name}
+              password: ${spring.security.user.password}
+  security: #basic auth creddentials
+    user:
+      name: admin
+      password: admin
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:localhost;DB_CLOSE_ON_EXIT=FALSE
+#    username: sa
+#    password: sa
+info:
+  name: Vehicle-Service
+  description: ${project.description}
+  version: ${project.version}
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+#  instance:
+#    statusPageUrlPath: ${server.servletPath}/info
+#    healthCheckUrlPath: ${server.servletPath}/health
+management:
+  endpoints: 
+    web: 
+      exposure:
+         include: "*"
+#spring.datasource.url=jdbc:mysql://localhost:3306/db
+#spring.datasource.username=
+#spring.datasource.password=   
+#spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+#spring.jpa.database-platform = org.hibernate.dialect.MySQL5Dialect
+#spring.jpa.generate-ddl=true
+#spring.jpa.hibernate.ddl-auto = update

@@ -1,0 +1,52 @@
+package ca.rcherara.services.vehicle.repository;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import ca.rcherara.services.vehicle.model.Vehicle;
+
+
+
+public class VehicleRepository {
+	
+	private List<Vehicle> vehicles = new ArrayList<>();
+	
+	public Vehicle add(Vehicle vehicle) {
+		vehicle.setId((long) (vehicles.size()+1));
+		vehicles.add(vehicle);
+		return vehicle;
+	}
+	
+	public Vehicle findById(Long id) {
+		Optional<Vehicle> vehicle = vehicles.stream().filter(a -> a.getId().equals(id)).findFirst();
+		if (vehicle.isPresent())
+			return vehicle.get();
+		else
+			return null;
+	}
+	
+	public List<Vehicle> findAll() {
+		return vehicles;
+	}
+
+
+	public void deleteById(Long id) {
+		
+		 vehicles.remove((Long)id);
+	}
+	
+	
+	public List<Vehicle> findByDealership(Long dealershipId) {
+		return vehicles.stream().filter(a -> a.getDealershipId().equals(dealershipId)).collect(Collectors.toList());
+	}
+	
+	public List<Vehicle> findByTransaction(Long transactionId) {
+		return vehicles.stream().filter(a -> a.getTransactionId().equals(transactionId)).collect(Collectors.toList());
+	}
+
+}
+
+

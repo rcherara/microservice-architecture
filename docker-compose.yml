@@ -1,0 +1,83 @@
+version: '3.2'
+services:
+  configuration-client:
+    build:
+      context: ./configuration-client
+    environment:
+     - SPRING_PROFILES_ACTIVE=docker
+    ports:
+     - 8080:8080
+    links:
+        - configuration-server
+  configuration-server:
+    build:
+      context: ./config-service
+    ports:
+     - 8888
+
+
+version: '3'
+services:
+  discovery-service:
+    container_name: discovery-service
+    image: 'rcherara/spring-cloud-learn/discovery-service:1.0.0-SNAPSHOT'
+    ports:
+      - 8761:8761
+    command: java -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+  sc-zipkin:
+    image: openzipkin/zipkin
+    container_name: sc-zipkin
+    ports:
+      # Port used for the Zipkin UI and HTTP Api
+      - 9411:9411
+  sc-user:
+    container_name: sc-user
+    image: 'zhixilang/spring-cloud-learn/sc-user:1.0.0-SNAPSHOT'
+    expose:
+      - 8081
+    environment:
+      - EUREKA_HOST=sc-eureka
+      - EUREKA_PORT=8761
+      - ZIP_KIN_SERVER_HOST=sc-zipkin
+      - ZIP_KIN_SERVER_PORT=9411
+    links:
+      - sc-eureka
+      - sc-zipkin
+    depends_on:
+      - sc-eureka
+      - sc-zipkin
+    command: java -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+  sc-bill:
+    container_name: sc-bill
+    image: 'zhixilang/spring-cloud-learn/sc-bill:1.0.0-SNAPSHOT'
+    expose:
+      - 8082
+    environment:
+      - EUREKA_HOST=sc-eureka
+      - EUREKA_PORT=8761
+      - ZIP_KIN_SERVER_HOST=sc-zipkin
+      - ZIP_KIN_SERVER_PORT=9411
+    links:
+      - sc-eureka
+      - sc-zipkin
+    depends_on:
+      - sc-eureka
+      - sc-zipkin
+    command: java -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+  sc-gateway:
+    container_name: sc-gateway
+    image: 'zhixilang/spring-cloud-learn/sc-gateway:1.0.0-SNAPSHOT'
+    ports:
+      - 9527:9527
+    environment:
+      - EUREKA_HOST=sc-eureka
+      - EUREKA_PORT=8761
+      - ZIP_KIN_SERVER_HOST=sc-zipkin
+      - ZIP_KIN_SERVER_PORT=9411
+    links:
+      - sc-eureka
+      - sc-zipkin
+    depends_on:
+      - sc-eureka
+      - sc-zipkin
+    command: java -Djava.security.egd=file:/dev/./urandom -jar /app.jar
