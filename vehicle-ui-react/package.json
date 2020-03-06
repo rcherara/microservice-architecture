@@ -1,0 +1,53 @@
+{
+  "name": "vehicle-ui-react",
+  "description": "Vehicule UI with react",
+  "version": "1.0.0",
+  "email": "cherara.reddah@icloud.com",
+  "url": "https://rcherara.ca/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rcherara/repository.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.4.1",
+    "http-proxy-middleware": "^1.0.1",
+    "node-sass": "^4.13.1",
+    "react": "^16.13.0",
+    "react-cookie": "4.0.3",
+    "react-dom": "^16.13.0",
+    "react-router-dom": "5.1.2",
+    "react-scripts": "3.4.0",
+    "reactstrap": "8.4.1"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:8081",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

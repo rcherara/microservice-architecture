@@ -1,0 +1,28 @@
+// Override default variables before the import
+$body-bg: rgba(140, 216, 203, 0.397);
+$body-color: #111;
+
+// Import Bootstrap and its default variables
+@import "node_modules/bootstrap/scss/bootstrap";
+// @import '~bootstrap/scss/bootstrap.scss';
+
+$theme-colors: (
+  "primary": #0074d9,
+  "danger": #ff4136
+);
+
+// Functions
+
+$theme-colors: map-remove($theme-colors, "success", "info", "danger");
+
+@function color($key: "blue") {
+    @return map-get($colors, $key);
+  }
+  
+  @function theme-color($key: "primary") {
+    @return map-get($theme-colors, $key);
+  }
+  
+  @function gray($key: "100") {
+    @return map-get($grays, $key);
+  }
