@@ -1,0 +1,54 @@
+server:
+  port: ${CONFIG_PORT:8761}
+spring:
+  application: #app discovery  config
+    name: Discovery-Service
+  cloud:
+    config:
+      uri: http://${CONFIG_SERVICE:localhost}:${CONFIG_PORT:7761}
+      fail-fast: true
+      username: ${CONFIG_SERVICE_USER:admin}
+      password: ${CONFIG_SERVICE_PASSWORD:admin}
+  boot:
+    admin:
+      client: #configs to connect to a secured server
+        url: http://localhost:9761/
+        instance:
+          service-base-url: http://localhost:9761
+          username: admin
+          password: admin
+          metadata: #configs to give secured server info
+            user:
+              name: ${spring.security.user.name}
+              password: ${spring.security.user.password}
+  security: #basic auth creddentials
+    user:
+      name: admin
+      password: admin
+eureka:
+  datacenter: Main
+  environment: Development
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_REGISTRY:localhost}:${EUREKA_REGISTRY_PORT:8761}/eureka
+    registerWithEureka: false
+    fetchRegistry: false
+logging:
+  level:
+    com:
+      netflix:
+        eureka: "OFF"
+        discovery: "OFF"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    beans:
+      cache:
+        time-to-live: 10s
+  health:
+    show-details: "always"

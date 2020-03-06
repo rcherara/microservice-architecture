@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: discovery-service
+server:
+  port: ${CONFIG_PORT:8761}
+eureka:
+  datacenter: Main
+  environment: Staging
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhsot:8761/
+    registerWithEureka: false
+    fetchRegistry: false

@@ -16,7 +16,8 @@
 
 	<properties>
 		<java.version>11</java.version>
-		<spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+		<spring-cloud.version>Hoxton.SR2</spring-cloud.version>
+		<spring-boot-maven-plugin.version>2.2.4.RELEASE</spring-boot-maven-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -24,7 +25,15 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>2.2.2</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -51,12 +60,28 @@
 	</dependencyManagement>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+		<defaultGoal>spring-boot:run</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot-maven-plugin.version}</version>
+				
+				<configuration>
+					<profiles>
+						<profile>development</profile>
+					</profiles>
+					<useSystemClassLoader>false</useSystemClassLoader>
+				</configuration>
+				<executions>
+					<execution>
+					  <goals>
+						<goal>build-info</goal>
+					  </goals>
+					</execution>
+				</executions>
+            </plugin>
+        </plugins>
 	</build>
 	<repositories>
 		<repository>

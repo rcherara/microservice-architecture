@@ -2,6 +2,7 @@ HELP.md
 target/
 .mvn/
 mvnw
+images/
 mvnw.cmd
 !**/src/main/**
 !**/src/test/**

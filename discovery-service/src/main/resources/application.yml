@@ -1,0 +1,9 @@
+server:
+  port: ${CONFIG_PORT:8761}
+spring:
+  application: 
+    name: Discovery-Service
+info:
+  name: ${project.name}
+  description: ${project.description}
+  version: ${project.version}
