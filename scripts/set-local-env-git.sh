@@ -1,0 +1,5 @@
+export SPRING_PROFILES_ACTIVE=default,git
+export security_oauth2_client_clientSecret=XXXXX
+export security_oauth2_client_clientId=XXXX
+export github_username=XXXX
+export github_password=XXXX

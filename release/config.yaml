@@ -1,0 +1,52 @@
+apiVersion: kots.io/v1beta1
+kind: Config
+metadata:
+  name: config-sample
+spec:
+  groups:
+    - name: example_settings
+      title: My Example Config
+      description: Configuration to serve as an example for creating your own
+      items:
+        - name: a_bool
+          title: a bool field
+          help_text: When enabled we will not change anything, because this is an example
+          type: bool
+          default: "0"
+        - name: a_text
+          title: a text field
+          type: text
+        - name: a_textarea
+          title: a textarea field
+          type: textarea
+        - name: a_textarea_default
+          title: a textarea field with a default value
+          type: textarea
+          default: |
+            My
+            default
+            text
+        - name: a_textarea_value
+          title: a textarea field with a prepopulated value
+          type: textarea
+          value: |
+              My
+              prepopulated
+              text
+        - name: a_password
+          title: a password field
+          type: password
+        - name: a_label
+          title: a label
+          type: label
+        - name: a_required_text
+          title: a required text field
+          type: text
+          required: true
+        - name: a_templated_text
+          title: a text field with a value provided by a template function
+          type: text
+          value: '{{repl RandomString 64 }}'
+        - name: a_templated_label
+          title: 'this matches the string above: {{repl ConfigOption "a_templated_text"}}'
+          type: label
