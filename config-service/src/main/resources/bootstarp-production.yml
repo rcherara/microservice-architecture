@@ -1,0 +1,25 @@
+## production
+server:
+  port: 7761 
+# If you want to launch both a config server for dev and a config server for prd, you must assign different ports.
+spring:
+  cloud: 
+    config: 
+      server: 
+        git:
+          uri: https://github.com/Reddah-Cherara/cloud-configuration-repository.git
+          clone-on-start: true
+eureka:
+  instance:
+    hostname: localhost
+    leaseRenewalIntervalInSeconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+logging:
+  level:
+    com:
+      netflix:
+        config:
+          sources:
+            URLConfigurationSource: ERROR

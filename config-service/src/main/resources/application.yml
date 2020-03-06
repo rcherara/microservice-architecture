@@ -1,0 +1,11 @@
+server:
+  port: ${CONFIG_PORT:7761} 
+spring:
+  application: #app discovery  config
+    name: Config-Service
+  profiles:
+    active: native
+info:
+  name: ${project.name}
+  description: ${project.description}
+  version: ${project.version}

@@ -1,0 +1,63 @@
+server:
+  port: ${CONFIG_PORT:7761} 
+eureka:
+  instance:
+    hostname: localhost
+    leaseRenewalIntervalInSeconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761
+spring:
+  application:
+    name: Config-Service
+    profiles:
+      active: native
+    cloud:
+      config:
+        allow-override: true
+        override-none: true
+        server:
+          native:
+            searchLocations: classpath:/config
+      #   git:
+      #     uri: https://github.com/rcherara/sp-config
+      #     searchPaths: config
+      #     username: your-username
+      #     password: your-password
+
+
+  security: #basic auth creddentials
+    user:
+      name: ${CONFIG_SERVICE_USER:admin}
+      password: {CONFIG_SERVICE_PASSWORD:admin}
+  spring:
+    boot:
+      admin:
+        client: #configs to connect to a secured server
+          url: http://localhost:9761
+          username: admin
+          password: admin
+        instance:
+          metadata: #configs to give secured server info
+            user:
+              name: ${spring.security.user.name}
+              password: ${spring.security.user.password}
+endpoints:
+    restart:
+      enabled: true
+logging:
+  level:
+    com:
+      netflix:
+        config:
+          sources:
+            URLConfigurationSource: ERROR
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always
+  
+

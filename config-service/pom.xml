@@ -31,8 +31,23 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
-
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>2.2.2</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter</artifactId>
@@ -67,6 +82,18 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<profiles>
+					  <profile>development,native</profile>
+					</profiles>
+				</configuration>
+				<executions>
+					<execution>
+					  <goals>
+						<goal>build-info</goal>
+					  </goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -74,7 +101,7 @@
 		<developer>
 			<name>CHERARA REDDAH</name>
 			<email>cherara.reddah@icloud.com</email>
-			<organization>http://brcherara.ca</organization>
+			<organization>http://rcherara.ca</organization>
 		</developer>
 	</developers>
 

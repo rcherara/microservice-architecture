@@ -1,4 +1,14 @@
-# Config-service
+# Config-service  Docker Container
+
+Usage:
+
+cd config-server
+docker build -t config-server .
+Run
+
+docker run --name="config-server" -p 7761:7761 config-server
+
+
 
 ##  Technology:
 Spring Cloud Config provides server and client modules for supporting externalized Configuration in a distributed system. With Config server, spring bootmicroservices configuration centralized across all environments.
@@ -46,6 +56,31 @@ spring:
       overrideNone: true
       overrideSystemProperties: false
 ```
+
+
+
+
+
+
+# Installing
+
+Clean and install the components configuration-client and configuration-server
+
+cd configuration-client
+./mvnw clean install
+cd ..
+And server
+
+cd configuration-server
+./mvnw clean install
+cd ..
+And start docker-compose
+
+docker-compose up --build
+
+
+mvn spring-boot:run -Dspring-boot.run.profiles=dev
+
 
 # Reference
 1.  [Use local property override remote property](https://stackoverflow.com/questions/43800256/how-spring-cloud-config-use-local-property-override-remote-property)

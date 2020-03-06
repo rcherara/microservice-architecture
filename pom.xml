@@ -6,12 +6,12 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-	    <module>config-service</module>
-		<module>discovery-service</module>
-		<!-- <module>gateway-service</module> -->
-		<!-- <module>services-admin-service</module> -->
-		<!-- <module>dealership-service</module>			 -->
-		<!-- <module>vehicle-service</module>		 -->
-		<!-- <module>transaction-service</module>					 -->
+		<module>config-service</module>			<!-- port: 7761		-->
+		<module>admin-service</module> 			<!-- port: 9761		-->
+		<module>discovery-service</module>		<!-- port: 8761		-->
+		<module>gateway-service</module>        <!-- port: 8080		-->
+		<module>vehicle-service</module>        <!-- port: 8081		-->
+		<module>dealership-service</module> 	<!-- port: 8082		-->
+		<module>transaction-service</module> 	<!-- port: 8083		-->
 	</modules>	
 </project>
