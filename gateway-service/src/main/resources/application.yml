@@ -1,0 +1,42 @@
+server:
+  port: ${CONFIG_PORT:8080}
+spring:
+  application: #app discovery  config
+    name: Gateway-Service
+  cloud:
+    config:
+      uri: http://${CONFIG_SERVICE:localhost}:${CONFIG_PORT:7761}
+      fail-fast: true
+      username: ${CONFIG_SERVICE_USER:admin}
+      password: ${CONFIG_SERVICE_PASSWORD:admin}
+  boot:
+    admin:
+      client: #configs to connect to a secured server
+        url: http://localhost:9761/
+        instance:
+          service-base-url: http://localhost:9761
+          #username: admin
+          #password: admin
+          metadata: #configs to give secured server info
+            user:
+              name: ${spring.security.user.name}
+              password: ${spring.security.user.password}
+  security: #basic auth creddentials
+    user:
+      name: admin
+      password: admin
+info:
+  name: Vehicle-Service
+  description: ${project.description}
+  version: ${project.version}
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+management:
+  endpoints: 
+    web: 
+      exposure:
+         include: "*"

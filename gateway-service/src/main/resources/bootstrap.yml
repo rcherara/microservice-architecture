@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: gGateway-Service
+  cloud:
+    config:
+      uri: http://localhost:7761
+
+#springdoc:
+#  api-docs:
+#    path:
