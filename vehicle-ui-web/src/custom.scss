@@ -1,0 +1,58 @@
+// Override default variables before the import
+$body-bg: rgba(140, 216, 203, 0.397);
+$body-color: #111;
+
+// Import Bootstrap and its default variables
+@import "node_modules/bootstrap/scss/bootstrap";
+// @import '~bootstrap/scss/bootstrap.scss';
+
+$theme-colors: (
+  "primary": #0074d9,
+  "danger": #ff4136
+);
+
+// Functions
+
+$theme-colors: map-remove($theme-colors, "success", "info", "danger");
+
+@function color($key: "blue") {
+    @return map-get($colors, $key);
+  }
+  
+  @function theme-color($key: "primary") {
+    @return map-get($theme-colors, $key);
+  }
+  
+  @function gray($key: "100") {
+    @return map-get($grays, $key);
+  }
+
+  
+  .box{ 
+    width: 80%; 
+    height: 88%; 
+    border: 1px dashed #f7a239;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    } 
+    img{ 
+    width: 85%; 
+    height: 85%; 
+    }
+
+    .centered {
+      height: 100vh; /* Magic here  Viewport Height (vh) */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .fullscreen {
+      width: 95wh;
+      height: 65vh;
+    }
+    
+    .a {
+      background: url('./images/where_vin.png') center/cover;
+    }

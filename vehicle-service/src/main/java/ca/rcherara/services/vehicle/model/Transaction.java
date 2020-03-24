@@ -19,6 +19,7 @@ public class Transaction
 	{
 		BUY, RETURN;
     }
+    
     public static TransactionType type;
 
 

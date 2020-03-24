@@ -1,0 +1,62 @@
+{
+  "appName": " برنامج  تسيير المركبات   -  UI React APP",
+  "navigation": {
+    "home": "الصفحة الرئيسية",
+    "about": "حول",
+    "contact": "اتصل",
+    "vehicles": "مركبات",
+    "add": "أضف",
+    "settings": "الإعدادات"
+  },
+  "home": {
+    "welcome": "مرحبًا بك",
+    "list": "قائمة المركبات",
+    "manage": "تسيير المركبات",
+    "name": "شرارة رضا",
+    "count": "هنالك  {{countVehicles}} عربة في النظام"  
+  },
+  "add": {
+    "vehicle": "اضافة مركبة",
+    "cancel" : "إلغاء",
+    "save" : "حفظ"
+  },
+  "update": {
+    "vehicle": "تحديث مركبة",
+    "cancel" : "إلغاء",
+    "save" : "حفظ",
+    "message":"تم إضافة العربة بنجاح"
+  },
+  "words": {
+    "vehicle": "مركبة",
+    "vehicles": "مركبات",
+    "add": "اضافة",
+    "update": "تحديث",
+    "delete": "حذف",
+    "list": "قائمة",
+    "name": "name",
+		"vin": "رقم تعريف السيارة",      
+	  "plate": "لوحة تسجيل المركبة",  
+	  "year": "العام", 
+    "position": "موقع", 
+    "location": "مكان", 
+    "tag": "تأشير", 
+    "model": "صنف", 
+    "type": "نوع", 
+    "brand": "brand", 
+    "mileage": "كلومترات", 
+    "color": "لون", 
+    "engine": "محرك", 
+    "tyre": "tyre", 
+    "price": "ثمن", 
+    "numOfWindows": "عدد النوافذ",  
+    "awd": "رباعية الدفع", 
+    "cost": "تكلفة", 
+	  "electric": "كهرباء" 
+  },
+  "delete": {
+    "vehicle": "حذف مركبة"
+  },
+  "translations" : {
+    "Welcome to React Translation": "مرحبًا بك في"
+  }
+}

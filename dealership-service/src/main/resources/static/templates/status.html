@@ -1,0 +1,8 @@
+<div class="col-xs-12" id="status" ng-controller="StatusController">
+    <div id="alert" ng-show="status">
+        <div class="alert" ng-class="{'alert-success': !status.isError, 'alert-danger': status.isError}">
+            <button type="button" class="close" ng-click="clearStatus()"><span class="glyphicon glyphicon-remove-circle"></span></button>
+            <p>{{status.message}}</p>
+        </div>
+    </div>
+</div>

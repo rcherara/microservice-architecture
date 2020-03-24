@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="en" ng-app="Dealership">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Dealership UI">
+    <meta name="title" content="Spring Dealership">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Spring Dealership rcherara.ca</title>
+
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.1.1/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/multi-columns-row.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+          <div ng-include="'templates/header.html'"></div> 
+        </div>
+
+        <div id="body" class="row">
+            <ng-view></ng-view> 
+        </div>
+
+        <div class="row">
+            <div ng-include="'templates/footer.html'"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="webjars/jquery/2.1.0/jquery.min.js"></script>
+
+    <script type="text/javascript" src="webjars/angularjs/1.2.16/angular.js"></script>
+    <script type="text/javascript" src="webjars/angularjs/1.2.16/angular-resource.js"></script>
+    <script type="text/javascript" src="webjars/angularjs/1.2.16/angular-route.js"></script>
+    <script type="text/javascript" src="webjars/angular-ui/0.4.0/angular-ui.js"></script>
+    <script type="text/javascript" src="webjars/angular-ui-bootstrap/0.10.0/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="webjars/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+
+    <script type="text/javascript" src="webjars/bootstrap/3.1.1/js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/dealerships.js"></script>
+    <script type="text/javascript" src="js/errors.js"></script>
+    <script type="text/javascript" src="js/status.js"></script>
+</body>
+</html>

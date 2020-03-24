@@ -24,6 +24,9 @@ import ca.rcherara.services.vehicle.repository.VehicleRepository;
 
 @RestController
 @RequestMapping("api")
+//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*", maxAge = 3600)
+//@CrossOrigin(origins = "*", allowedHeaders = "*")
 // @CrossOrigin    This is to allow cross origin data flow between one server to another server
 public class VehiculeController {
 	
@@ -35,7 +38,16 @@ public class VehiculeController {
 		@GetMapping("/vehicles")
 		Collection<Vehicle> vehicles() {
 			LOGGER.info("List all vehicles");
+			
 			return vehiculeRepository.findAll();
+		}
+
+		@GetMapping("/vehicles/count")
+		//@RequestMapping(value = "/vehicles/count",produces = "application/json", method=RequestMethod.GET)
+		ResponseEntity<String> countVehicles() {		
+			String result = Long.toString(vehiculeRepository.count());
+			//LOGGER.info("Count  vehicles " + result);
+			return ResponseEntity.ok().body(result);		
 		}
 
 		@GetMapping("/vehiclesWithDelay")
@@ -76,6 +88,11 @@ public class VehiculeController {
 			return ResponseEntity.ok().body(result);
 		}
 	
+		@PostMapping
+		public ResponseEntity<?> addorUpdateVehicle(@RequestBody Vehicle vehicle) {
+			vehiculeRepository.save(vehicle); 
+			return new ResponseEntity("Vehicle added succcessfully", HttpStatus.OK);
+		}
 
 		
 

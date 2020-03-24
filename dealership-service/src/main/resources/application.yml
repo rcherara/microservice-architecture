@@ -1,0 +1,82 @@
+server:
+  port: ${CONFIG_PORT:8082}
+info:
+  name: ${project.name}
+  description: ${project.description}
+  version: ${project.version}
+spring:
+  jpa:
+    generate-ddl: true
+  application: #app discovery  config
+    name: Dealship-Service
+  cloud:
+    config:
+      uri: http://${CONFIG_SERVICE:localhost}:${CONFIG_PORT:7761}
+      fail-fast: true
+      username: ${CONFIG_SERVICE_USER:admin}
+      password: ${CONFIG_SERVICE_PASSWORD:admin}
+  boot:
+    admin:
+      client: #configs to connect to a secured server
+        url: http://localhost:9761/
+        instance:
+          service-base-url: http://localhost:9761
+          #username: admin
+          #password: admin
+          metadata: #configs to give secured server info
+            user:
+              name: ${spring.security.user.name}
+              password: ${spring.security.user.password}
+  security: #basic auth creddentials
+    user:
+      name: admin
+      password: admin
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:localhost;DB_CLOSE_ON_EXIT=FALSE
+#    username: sa
+#    password: sa
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+#  instance:
+#    statusPageUrlPath: ${server.servletPath}/info
+#    healthCheckUrlPath: ${server.servletPath}/health
+management:
+  endpoints: 
+    web: 
+      exposure:
+         include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+---
+spring:
+  profiles: mysql
+  datasource:
+    url: "jdbc:mysql://localhost/dealership"
+    driver-class-name: com.mysql.jdbc.Driver
+    username:
+    password: 
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL55Dialect
+
+---
+spring:
+  profiles: postgres
+  datasource:
+    url: "jdbc:postgresql://localhost/dealership"
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.ProgressDialect

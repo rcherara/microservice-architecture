@@ -1,0 +1,22 @@
+<div id="errors" class="col-xs-12"  ng-controller="ErrorsController">
+    <div class="page-header">
+        <h1>Force Errors</h1>
+    </div>
+
+    <div class="row">
+        <div ng-include src="'templates/status.html'"></div>
+    </div>
+
+    <div class="row">
+        <form role="form">
+            <div class="form-group">
+                <h3>Kill this instance of the application</h3>
+                <a ng-click="kill()" class="btn btn-primary btn-lg active" role="button">Kill</a>
+            </div>
+            <div class="form-group">
+                <h3>Force an exception to be thrown from the application</h3>
+                <a ng-click="throwException()" class="btn btn-primary btn-lg active" role="button">Throw Exception</a>
+            </div>
+        </form>
+    </div>
+</div>

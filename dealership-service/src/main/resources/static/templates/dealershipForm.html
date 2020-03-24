@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h3 ng-show="dealershipAction === 'add'">Add an dealership</h3>
+    <h3 ng-show="dealershipAction === 'update'">Edit an dealership</h3>
+</div>
+<div class="modal-body">
+    <form name="dealershipForm" role="form">
+        <div class="form-group has-feedback" ng-class="{'has-warning': dealershipForm.title.$invalid, 'has-success': dealershipForm.title.$valid}">
+            <label for="title">dealership Title</label>
+            <input type="text" class="form-control input-large" id="title" name="title" required ng-model="dealership.title">
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-warning-sign': dealershipForm.title.$invalid, 'glyphicon-ok': dealershipForm.title.$valid}"></span>
+        </div>
+        <div class="form-group has-feedback" ng-class="{'has-warning': dealershipForm.artist.$invalid, 'has-success': dealershipForm.artist.$valid}">
+            <label for="artist">Artist</label>
+            <input type="text" class="form-control input-large" id="artist" name="artist" required ng-model="dealership.artist">
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-warning-sign': dealershipForm.artist.$invalid, 'glyphicon-ok': dealershipForm.artist.$valid}"></span>
+        </div>
+        <div class="form-group has-feedback" ng-class="{'has-warning': dealershipForm.releaseYear.$invalid, 'has-success': dealershipForm.releaseYear.$valid}">
+            <label for="releaseYear">Release Year</label>
+            <input type="text" class="form-control input-small" id="releaseYear" name="releaseYear" required ng-model="dealership.releaseYear" ng-pattern=yearPattern>
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-warning-sign': dealershipForm.releaseYear.$invalid, 'glyphicon-ok': dealershipForm.releaseYear.$valid}"></span>
+        </div>
+        <div class="form-group has-feedback" ng-class="{'has-warning': dealershipForm.genre.$invalid, 'has-success': dealershipForm.genre.$valid}">
+            <label for="genre">Genre</label>
+            <input type="text" class="form-control input-medium" id=genre name="genre" required ng-model="dealership.genre">
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-warning-sign': dealershipForm.genre.$invalid, 'glyphicon-ok': dealershipForm.genre.$valid}"></span>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary btn-md active" ng-disabled="dealershipForm.$invalid" ng-click="ok()" >OK</button>
+    <button class="btn btn-warning btn-md active" ng-click="cancel()">Cancel</button>
+</div>

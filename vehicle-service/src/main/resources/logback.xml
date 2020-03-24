@@ -6,8 +6,16 @@
             <pattern>%date [%thread] %-5level %logger{25} - %msg%n</pattern>
         </encoder>
     </appender>
-
-    <root level="INFO">
+    <springProfile name="prod">
+        <root level="info">
+        <appender-ref ref="SAVE-TO-FILE"/>
+        </root>
+        <logger name="ca.rcherara.services.vehicle" additivity="false" level="error">
+        <appender-ref ref="SAVE-TO-FILE"/>
+        </logger>
+    </springProfile>
+    <root level="ERROR">
         <appender-ref ref="CONSOLE"/>
     </root>
+
 </configuration>

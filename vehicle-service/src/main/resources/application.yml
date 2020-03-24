@@ -1,8 +1,13 @@
 server:
   port: ${CONFIG_PORT:8081}
+application:
+  theme:
+    background: red
 spring:
   application: #app discovery  config
     name: Vehicle-Service
+  jackson:
+    default-property-inclusion: NON_NULL
   cloud:
     config:
       uri: http://${CONFIG_SERVICE:localhost}:${CONFIG_PORT:7761}
@@ -43,11 +48,16 @@ eureka:
 #  instance:
 #    statusPageUrlPath: ${server.servletPath}/info
 #    healthCheckUrlPath: ${server.servletPath}/health
+
+# enable exposing Actuator HTTP endpoints outside application
 management:
-  endpoints: 
-    web: 
+  endpoints:
+    web:
       exposure:
-         include: "*"
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
 #spring.datasource.url=jdbc:mysql://localhost:3306/db
 #spring.datasource.username=
 #spring.datasource.password=   
@@ -55,3 +65,5 @@ management:
 #spring.jpa.database-platform = org.hibernate.dialect.MySQL5Dialect
 #spring.jpa.generate-ddl=true
 #spring.jpa.hibernate.ddl-auto = update
+
+

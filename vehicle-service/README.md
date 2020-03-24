@@ -4,28 +4,37 @@
   - Java Runtime
   - Maven 
     - **MAC** - `brew install maven`
-  - Docker Hub ID - _DID_
+  - Docker Hub ID - {DID}
 
 ## Build Locally
 
 
 ```shell
-git clone https://github.com/leefaus/person-api
-cd person-api
-mvn package
-docker build -t {DID}/person-api .
-cd target
-docker run -e JARFILE=person-0.0.1-SNAPSHOT.jar -it {DID}/person-api
-docker login --username={DID} --email=youremail@company.com
-docker push {DID}/person-api
+  $ git clone https://github.com/rcherara/vehicle-service
+  $ cd vehicle-service
+  $ mvn package
+  $ docker build -t {DID}/vehicle-service .
+  $ cd target
+  $ docker run -e JARFILE=vehicle-service-0.0.1-SNAPSHOT.jar -it {DID}/vehicle-service
+  $ docker login --username={DID} --email=youremail@company.com
+  $ docker push {DID}/vehicle-service
 ```
 
 
 #  Running
 To build and start the server simply type
 
-$ mvn clean install
-$ mvn spring-boot:run -Dserver.port=8081
+```
+  $ mvn clean install # add -DskipTests to omit running the tests
+  $ mvn spring-boot:run -Dserver.port=8081
+```
+
+
+```curl
+curl -X GET "http://localhost:8081/api/message?msg=welcome" -H "accept: */*"
+Bienvenue dans ce guide!
+```
+
 
 # swagger UI
 
@@ -33,34 +42,31 @@ http://localhost:8081/swagger-ui.html#/
 
 # DB 
 
-/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+http://localhost:8081/h2-console'. Database available at 'jdbc:h2:mem:testdb'
 
 
-# React UI
-You will need Java 8+, Node.js 8+, and Yarn installed
 
-npm run test
-npm run dev
+You can create, read, update, and delete vehicles with the following Curl commands:
 
+```shell
+  $ curl -X POST "http://localhost:8081/api/vehicle" -H "accept: */*" -H "Content-Type: application/json" -d "{ 
+    \"AWD\": true, \"awd\": true, \"brand\": \"string\", \"color\": \"string\", \"cost\": 0, \"electric\": true, 
+    \"engine\": \"FAST\", \"id\": 0, \"location\": \"string\", \"mileage\": 0, \"model\": \"SEDAN\", \"name\": \"string\", 
+    \"numOfWindows\": 5, \"plate\": \"string\", \"position\": \"string\", \"price\": 0, \"tag\": \"string\", \"type\": 
+    \"string\", \"tyre\": \"SNOW\", \"vin\": \"string\", \"year\": 0}"
 
-# 
+```
+output :
 
-You can create, read, update, and delete vehcile with the following HTTPie commands.
+```shell
+{"id":52,"vin":"string","name":"string","plate":"string","year":0,"position":"string","location":"string","tag":"string","model":"SEDAN","type":"string","brand":"string","mileage":0.0,"color":"string","engine":"FAST","tyre":"SNOW","price":0.0,"numOfWindows":5,"AWD":true,"cost":0.0,"electric":true,"awd":true}%                                                     ~ 
+```
 
-http POST :8081/api/vehciles name='Dublin JUG' city=Dublin country=Ireland
-http :8081/api/vehcile/1
-http PUT :8081/api/vehcile/6 name='Dublin JUG' city=Dublin country=Ireland address=Downtown
-http DELETE :8081/api/vehcile/6
+```shell
+  $ curl -X GET "http://localhost:8081/api/vehicle/13" -H "accept: */*"
+```
+output :
 
-# production
-In production, it is recommended to minify any JavaScript code that is included with your application. Minification can help your website load several times faster, especially as the size of your JavaScript source code grows.
-
-Here's one way to set it up:
-
-Install Node.js
-Run npm init -y in your project folder (don't skip this step!)
-Run npm install terser
-Now, to minify a file called like_button.js, run in the terminal:
-
-npx terser -c -m -o like_button.min.js -- like_button.js
-This will produce a file called like_button.min.js with the minified code in the same directory. If you're typing this often, you can create an npm script to give this command a name.
+```shell
+{"id":13,"vin":"SAD23SDSSDSS","name":"Mercedes-Benz Classe A","plate":"SDE34422","year":2019,"position":"Alger","location":"Rue Didouche Mourad","tag":"WSDLKALK","model":"SUV","type":"Type","brand":"sfasfa","mileage":23434.0,"color":"Red","engine":"MEDIUM","tyre":"SUMMER","price":23333.0,"numOfWindows":6,"AWD":true,"cost":1.2312312E7,"electric":false,"awd":true}%
+```

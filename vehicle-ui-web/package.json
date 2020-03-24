@@ -1,0 +1,84 @@
+{
+  "name": "vehicle-ui-react",
+  "description": "Vehicle UI with react",
+  "version": "1.0.0",
+  "license": "MIT",
+  "email": "cherara.reddah@icloud.com",
+  "url": "https://rcherara.ca/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rcherara/repository.git"
+  },
+  "author": {
+    "name": "Cherara Reddah <cherara.reddah@icloud.com>",
+    "url": "https://rcherara.ca"
+  },
+  "keywords": [
+    "internationalization",
+    "frontend",
+    "service",
+    "rcherara",
+    "spring-boot",
+    "react",
+    "vehicle",
+    "i18n",
+    "i18n-js",
+    "intl",
+    "react-intl"
+  ],
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^10.0.0",
+    "accept-language": "^3.0.18",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "cookie-parser": "^1.4.5",
+    "eslint-plugin-flowtype": "^4.6.0",
+    "http-proxy-middleware": "^1.0.1",
+    "i18n-js": "^3.5.1",
+    "install": "^0.13.0",
+    "intl": "^1.2.5",
+    "jquery": "^3.4.1",
+    "js-cookie": "^2.2.1",
+    "native-base": "^2.13.12",
+    "node-sass": "^4.13.1",
+    "npm": "^6.14.2",
+    "react": "^16.13.1",
+    "react-cookie": "4.0.3",
+    "react-dom": "^16.13.1",
+    "react-intl": "^3.12.0",
+    "react-native-localization": "^2.1.6",
+    "react-native-localize": "^1.3.4",
+    "react-router-dom": "5.1.2",
+    "react-scripts": "^3.4.0",
+    "react-switch-lang": "^1.0.2",
+    "reactstrap": "8.4.1",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:8081",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

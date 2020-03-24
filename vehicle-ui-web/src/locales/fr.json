@@ -1,0 +1,62 @@
+{
+  "appName": "Vehicles UI React APP",
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "vehicles": "Véhicules",
+    "add": "Ajouter",
+    "settings": "Réglages"
+  },
+  "home": {
+    "welcome": "Bienvenue dans %{appName}!",
+    "list": "Liste des  véhicules",
+    "manage": "Gestion des véhicules",
+    "name": "CHERARA Reddah",
+    "count": "Il y a {{countVehicles}} véhicules dans le système." 
+  },
+  "add": {
+    "vehicle": "Ajouter de véhicules",
+    "cancel" : "Annuler",
+    "save" : "Sauvegarde"
+  },
+  "update": {
+    "vehicle": "Mise à jour de véhicules",
+    "cancel" : "Annuler",
+    "save" : "Sauvegarde",
+    "message":"Vehicle added successfully."
+  },
+  "words": {
+    "vehicle": "Vehicle",
+    "vehicles": "Vehicles",
+    "add": "Add",
+    "update": "Update",
+    "delete": "Delete",
+    "list": "List",
+    "name": "Name",
+		"vin": "Vehicle Identification Number",      
+	  "plate": "Vehicle registration plate",  
+	  "year": "Year", 
+    "position": "Position", 
+    "location": "Location", 
+    "tag": "Tag", 
+    "model": "Model", 
+    "type": "Type", 
+    "brand": "Brand", 
+    "mileage": "Mileage", 
+    "color": "Color", 
+    "engine": "Engine", 
+    "tyre": "Tyre", 
+    "price": "Price", 
+    "numOfWindows": "Num of windows",  
+    "awd": "AWS", 
+    "cost": "Cost", 
+	  "electric": "Electric" 
+  },
+  "delete": {
+    "vehicle": "Supprimer véhicules"
+  },
+  "translations" : {
+    "Welcome to React Translation": "Bienvenue dans React Translation."
+  }
+}

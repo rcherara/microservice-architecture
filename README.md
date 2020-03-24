@@ -2,12 +2,12 @@
 ![Java CI](https://github.com/rcherara/building-a-microservice-architecture/workflows/Java%20CI/badge.svg?branch=master)
 
 # Best Practices of a Microservice Architecture with Spring Cloud, CI, CD and IaC
-This example is an eco-system  for a car dealer based on a microservices architecture.
+This example is Dealer Management Systems based on a microservices architecture.
 
 The architecture supports the following technologies: 
 
   * Frameworks - Spring Boot, Spring Cloud, Feign, Eureka, Resilience4j, jhipster.
-  *  React Native or React Native Web to build as a mobile app or hybrid app (web + mobile)
+  * UI - React Native or React Native Web to build as a mobile app or hybrid app (web + mobile)
   * Firebase, AWS Amplify, or Hasura (using GraphQL subscriptions) to send messages in realtime
   * Cloudinary or Firebase storage for sending messages with image or video content
   * Serverless functions like AWS Lambda or Firebase Functions for notifications

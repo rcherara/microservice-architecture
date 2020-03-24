@@ -1,0 +1,7 @@
+[
+    {
+        "id":1,"vin":"SAD23SDSSDSS","name":"Mazda3","plate":"SDE34422","year":2019,"position":"Alger","location":"Rue Didouche Mourad","tag":"WSDLKALK","model":"SUV","type":"Type","brand":"sfasfa","mileage":23434.0,"color":"Red","engine":"MEDIUM","tyre":"SUMMER","price":23333.0,"numOfWindows":6,"AWD":true,"cost":1.2312312E7,"electric":false,"awd":true},{"id":2,"vin":"SAD23SDSSDSS","name":"Mazda CX5","plate":"SDE34422","year":2019,"position":"Alger","location":"Rue Didouche Mourad","tag":"WSDLKALK","model":"SUV","type":"Type","brand":"sfasfa","mileage":23434.0,"color":"Red","engine":"MEDIUM","tyre":"SUMMER","price":23333.0,"numOfWindows":6,"AWD":true,"cost":1.2312312E7,"electric":false,"awd":true},{"id":3,"vin":"SAD23SDSSDSS","name":"Mazda6","plate":"SDE34422","year":2019,"position":"Alger","location":"Rue Didouche Mourad","tag":"WSDLKALK","model":"SUV","type":"Type","brand":"sfasfa","mileage":23434.0,"color":"Red","engine":"MEDIUM","tyre":"SUMMER","price":23333.0,"numOfWindows":6,"AWD":true,"cost":1.2312312E7,"electric":false,"awd":true
+    },
+    {
+        "id":4,"vin":"SAD23SDSSDSS","name":"Mazda CX-3","plate":"SDE34422","year":2019,"position":"Alger","location":"Rue Didouche Mourad","tag":"WSDLKALK","model":"SUV","type":"Type","brand":"sfasfa","mileage":23434.0,"color":"Red","engine":"MEDIUM","tyre":"SUMMER","price":23333.0,"numOfWindows":6,"AWD":true,"cost":1.2312312E7,"electric":false,"awd":true
+    }]

@@ -1,0 +1,29 @@
+<div id="dealerships" ng-init="init()">
+    <div class="page-header">
+        <h1>Dealerships</h1>
+        <div>
+            <span> [ view as: </span>
+            <a href="" ng-click="setdealershipsView('grid')"><span class="glyphicon glyphicon-th"></span></a>
+            <a href="" ng-click="setdealershipsView('list')"><span class="glyphicon glyphicon-th-list"></span></a>
+            <span> | sort by: </span>
+            <a href="" ng-click="sortField='title'">title</a>
+            <a href="" ng-click="sortField='artist'">artist</a>
+            <a href="" ng-click="sortField='releaseYear'">year</a>
+            <a href="" ng-click="sortField='genre'">genre</a>
+            <a href="" ng-click="sortDescending=!sortDescending">
+                <span class="glyphicon" ng-class="{'glyphicon-chevron-up' : !sortDescending, 'glyphicon-chevron-down' : sortDescending}"></span>
+            </a>
+            <span> | </span>
+            <a href="" ng-click="adddealership()"><span class="glyphicon glyphicon-plus"></span>add an dealership</a>
+            <span> ] </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div ng-include src="'templates/status.html'"></div>
+    </div>
+
+    <div class="row multi-columns-row">
+        <div ng-include src="dealershipsView"></div>
+    </div>
+</div>

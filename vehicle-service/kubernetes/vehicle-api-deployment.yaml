@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vehicle-api
+  labels:
+    app: vehicle-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vehicle-api
+  template:
+    metadata:
+      labels:
+        app: vehicle-api
+    spec:
+      containers:
+      - name: vehicle-api
+        image: rcherara/vehicle-service:latest
+        imagePullPolicy: Always
+        ports:
+        - name: api
+          containerPort: 8081
+        env:
+          - name: CONFIG_SERVICE_PATH
+            value: "http://config-service.default.svc.cluster.local:8081"
