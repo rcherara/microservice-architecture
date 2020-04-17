@@ -2,59 +2,115 @@ package ca.rcherara.services.vehicle.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import java.io.Serializable;
 import java.time.LocalDateTime;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Getter
+@Setter
 @EqualsAndHashCode
-//@NoArgsConstructor
-//@RequiredArgsConstructor
-//@Table(name = "vehicle")
-public class Vehicle {
+@Table(name = "vehicle")
+@EntityListeners(AuditingEntityListener.class)
+public class Vehicle  implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public Long id;
-	@NotNull(message = "Please, inform a VINM for your vehicle.")
-    @Size(min = 1, max = 15, message = "Name must have between {min} and {max} characters.")
+	@Column(name = "id", nullable = false)
+	private Long id;
 
-	public String vin;      // Vehicle Identification Number
-	public String name;
-	public String plate;  // vehicle registration plate
-	public int year;
-    public String position;
-    public String location;
-    public String tag;
-    public Model model;
-    public String type;
-    public String brand;
-    public double mileage;
-    public String color;
-    public EngineType engine;
-	public TyreType tyre;
+	@NotNull(message = "Please, inform a vin (Vehicle Identification Number) for your vehicle.")
+	@Size(min = 1, max = 15, message = "Name must have between {min} and {max} characters.")
+	@Column(name = "vehicle_vin")
+	private String vin;    
+
+	
+	@Column(name = "vehicle_name")
+	@Size(max = 65)
+	private String name;
+
+	@NotNull(message = "Please, inform a vehicle registration plate for your vehicle.")
+	@Column(name = "vehicle_plate")
+	private String plate;  
+
+	@Column(name = "vehicle_year")
+	private int year;
+
+	@Column(name = "vehicle_position")
+	private String position;
+	
+	@Column(name = "vehicle_location")
+	private String location;
+	
+	@Column(name = "vehicle_tag")
+	private String tag;
+	
+	@Column(name = "vehicle_model")
+	private Model model;
+	
+	@Column(name = "vehicle_type")
+	private String type;
+	
+	@Column(name = "vehicle_brand")
+	private String brand;
+	
+	@Column(name = "vehicle_mileage")
+	private double mileage;
+	
+	@Column(name = "vehicle_color")
+	private String color;
+	
+	@Column(name = "vehicle_engine")
+	private EngineType engine;
+	
+	@Column(name = "vehicle_tyre")
+	private TyreType tyre;
+
 	@Min(message = "Price cannot be negative", value = 0)
-	public double price;
+	@Column(name = "vehicle_price")
+	private double price;
+	
 	@Min(message = "Number of windows of the vehicle cannot be negative", value = 2)
-    public int numOfWindows;
-    public boolean AWD;
-    public double  cost;
-	public boolean electric = false;    
+	@Column(name = "vehicle_windows")
+	private int numOfWindows;
+	
+	@Column(name = "vehicle_awd")
+	private boolean AWD;
+	
+	@Column(name = "vehicle_cost")
+	private double  cost;
+
+	@Column(name = "vehicle_electric")
+	private boolean electric = false;    
+
 	@JsonIgnore
+	@CreatedDate
     private final LocalDateTime createdAt = LocalDateTime.now();
 
-    @JsonIgnore
-    private final LocalDateTime editedAt = LocalDateTime.now();
-    //private Long dealershipId;
-	//private Long transactionId;
-	/* @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    private Set<Event> events; */
+	@JsonIgnore
+	@LastModifiedDate
+	private final LocalDateTime editedAt = LocalDateTime.now();
+	
 	
 	public Vehicle(){};
  
@@ -79,6 +135,7 @@ public class Vehicle {
 		this.AWD=AWD;
 		this.cost=cost;
 		this.electric = electric;  
+		 
 	}
 
 	@Override

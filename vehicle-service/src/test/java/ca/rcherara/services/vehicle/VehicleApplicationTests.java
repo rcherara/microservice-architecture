@@ -6,8 +6,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class VehicleApplicationTests {
 
-	@Test
+/* 	@Test
 	void contextLoads() {
-	}
+	} */
 
 }
+
+

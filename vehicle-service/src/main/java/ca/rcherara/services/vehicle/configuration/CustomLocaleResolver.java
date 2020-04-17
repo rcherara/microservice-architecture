@@ -15,8 +15,7 @@ import java.util.Locale;
 public class CustomLocaleResolver extends AcceptHeaderLocaleResolver implements WebMvcConfigurer {
 
 	List<Locale> LOCALES = Arrays.asList(
-			new Locale("ar"),new Locale("en"),new Locale("es"),new Locale("de"),new Locale("it"),
-			new Locale("fr"));
+		new Locale("ar"),new Locale("en"),new Locale("es"),new Locale("de"),new Locale("it"),new Locale("fr"));
 
 	@Override
 	public Locale resolveLocale(HttpServletRequest request) {

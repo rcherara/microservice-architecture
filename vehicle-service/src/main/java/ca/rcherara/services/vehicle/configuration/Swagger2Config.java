@@ -23,16 +23,7 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @EnableSwagger2
 public class Swagger2Config {
 
-/*     @Bean
-    public Docket springfoxAppInfo() {
-        return new Docket(DocumentationType.SWAGGER_2)
-          .groupName("vehicle-api")
-          .select()
-          .paths(paths())
-          .build();
-          .apiInfo(apiInfo());
-    }
- */
+
     private Predicate<String> paths() {
         return regex("/api/.*");       
     }
@@ -62,14 +53,6 @@ public class Swagger2Config {
                 .securityContexts(securityContexts());
     }
 
-/*     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title("Vehicle API specification")
-                .description("Vehicle Service Project")
-                .version("1.0")
-                .build();
-    } */
-
     private List<ApiKey> securitySchemes() {
 
         List<ApiKey> result = new ArrayList<>();
@@ -81,8 +64,8 @@ public class Swagger2Config {
     private List<SecurityContext> securityContexts() {
         List<SecurityContext> result = new ArrayList<>();
         result.add(getContextByPath("/api/.*"));
-        result.add(getContextByPath("/vehicles/.*"));
-        result.add(getContextByPath("/vehicle/.*"));
+        result.add(getContextByPath("/api/vehicles/.*"));
+        result.add(getContextByPath("/api/vehicle/.*"));
         return result;
     }
 

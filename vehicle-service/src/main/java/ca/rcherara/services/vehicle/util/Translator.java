@@ -21,4 +21,9 @@ public class Translator {
 		Locale locale = LocaleContextHolder.getLocale();
 		return messageSource.getMessage(msg, null, locale);
 	}
+
+	public static String toLocale(String msg, Locale locale  ) {
+
+		return messageSource.getMessage(msg, null, locale);
+	}
 }

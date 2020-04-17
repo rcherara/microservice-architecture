@@ -27,7 +27,7 @@ public class Event {
     private Instant date;
     private String title;
     private String description;
-  /*   @ManyToMany
+    /*   @ManyToMany
     private Set<Interaction> interactions; */
 
 

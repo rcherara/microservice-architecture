@@ -1,9 +1,29 @@
 server:
   port: ${CONFIG_PORT:8081}
+info:
+  name: Vehicle-Service
+  description: ${project.description}
+  version: ${project.version}
+  framework: spring, spring boot
+  artifact: ${project.artifactId}
 application:
   theme:
     background: red
+springdoc:
+  version: '@springdoc.version@'
 spring:
+  resources:
+    cache:
+      period: 31536000
+      cachecontrol:
+        max-age: 31536000
+    chain:
+      html-application-cache: true
+      enabled: true
+      strategy:
+        content:
+          enabled: true
+          paths: /webjars/swagger-ui/**.*
   application: #app discovery  config
     name: Vehicle-Service
   jackson:
@@ -35,10 +55,7 @@ spring:
 #    url: jdbc:h2:mem:localhost;DB_CLOSE_ON_EXIT=FALSE
 #    username: sa
 #    password: sa
-info:
-  name: Vehicle-Service
-  description: ${project.description}
-  version: ${project.version}
+
 eureka:
   client:
     serviceUrl:

@@ -18,16 +18,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ca.rcherara.services.vehicle.exception.VehicleNotFoundException;
 import ca.rcherara.services.vehicle.model.Vehicle;
 import ca.rcherara.services.vehicle.repository.VehicleRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 
 @RestController
 @RequestMapping("api")
-//@CrossOrigin(origins = "http://localhost:3000")
 @CrossOrigin(origins = "*", maxAge = 3600)
-//@CrossOrigin(origins = "*", allowedHeaders = "*")
-// @CrossOrigin    This is to allow cross origin data flow between one server to another server
+@Tag(name = "vehicule")
 public class VehiculeController {
 	
 		private static final Logger LOGGER = LoggerFactory.getLogger(VehiculeController.class);
@@ -66,7 +66,7 @@ public class VehiculeController {
 		ResponseEntity<Vehicle> createVehicle(@Valid @RequestBody Vehicle vehicle) throws URISyntaxException {
 			LOGGER.info("Request to create vehicle: {}", vehicle);
 			Vehicle result = vehiculeRepository.save(vehicle);
-			return ResponseEntity.created(new URI("/api/vehicle/" + result.id))
+			return ResponseEntity.created(new URI("/api/vehicle/" + result.getId()))
 					.body(result);
 		}
 
@@ -75,12 +75,14 @@ public class VehiculeController {
 		ResponseEntity<?> getVehicle(@PathVariable Long id) {
 			LOGGER.info("Vehicle find by id={}", id);
 			Optional<Vehicle> vehicle = vehiculeRepository.findById(id);
+			if (vehicle==null) {
+				throw new VehicleNotFoundException("Intended User Id not found :"+id);
+			}
 			return vehicle.map(response -> ResponseEntity.ok().body(response))
 					.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 		}
 
 
-		//@PutMapping("/vehicle/{id}")
 		@RequestMapping(value = "/vehicle/{id}",produces = "application/json", method=RequestMethod.PUT)
 		ResponseEntity<Vehicle> updateVehicle(@Valid @RequestBody Vehicle vehicle) {
 			LOGGER.info("Request to update vehicle: {}", vehicle);
@@ -88,11 +90,11 @@ public class VehiculeController {
 			return ResponseEntity.ok().body(result);
 		}
 	
-		@PostMapping
+/* 		@PostMapping("/vehicle")
 		public ResponseEntity<?> addorUpdateVehicle(@RequestBody Vehicle vehicle) {
 			vehiculeRepository.save(vehicle); 
 			return new ResponseEntity("Vehicle added succcessfully", HttpStatus.OK);
-		}
+		} */
 
 		
 

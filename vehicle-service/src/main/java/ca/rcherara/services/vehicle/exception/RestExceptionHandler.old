@@ -28,7 +28,7 @@ public class RestExceptionHandler {
 
     @ExceptionHandler(RestException.class)
     public ResponseEntity<RestMessage> handleIllegalArgument(RestException ex, Locale locale) {
-        String errorMessage = messageSource.getMessage(ex.getMessage(), ex.getArgs(), locale);
+        String errorMessage = messageSource.getMessage(ex.getMessage(), ex.getLocalizedMessage(), locale);
         return new ResponseEntity<>(new RestMessage(errorMessage), HttpStatus.BAD_REQUEST);
     }
 
