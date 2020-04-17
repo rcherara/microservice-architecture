@@ -1,12 +1,15 @@
 
+# Badges
+
 ![Java CI](https://github.com/rcherara/building-a-microservice-architecture/workflows/Java%20CI/badge.svg?branch=master)
 
 # Best Practices of a Microservice Architecture with Spring Cloud, CI, CD and IaC
-This example is Dealer Management Systems based on a microservices architecture.
+
+This repository is Dealer Management Systems based on a microservices architecture.
 
 The architecture supports the following technologies: 
 
-  * Frameworks - Spring Boot, Spring Cloud, Feign, Eureka, Resilience4j, jhipster.
+  * Frameworks - Spring Boot, Spring Cloud, Feign, Eureka, Resilience4j.
   * UI - React Native or React Native Web to build as a mobile app or hybrid app (web + mobile)
   * Firebase, AWS Amplify, or Hasura (using GraphQL subscriptions) to send messages in realtime
   * Cloudinary or Firebase storage for sending messages with image or video content
@@ -18,7 +21,7 @@ The architecture supports the following technologies:
   * Security: JWT (JSON Web Token) with OIDC, OpenID Connect with MITREid Connect, OAuth 2.0,  “UAA” (User Account and Authentication) server.
   * Message brokers - Apache Kafka, RabbitMQ, and Redis Streams
   * Services communicate asynchronously using domain events, and command/reply messages.
-  * Cloud - AWS, Pivotal Cloud Foundry (PCF), Google Compute Platform (GCP), OpenStack, VMware vSphere. Heroku.
+  * Cloud - AWS, Pivotal Cloud Foundry (PCF), Google Compute Platform (GCP), OpenStack, VMware vSphere,  Heroku, Netlify
   * Server Side - Spring Boot, Spring Security, Maven, Hibernate, Liquibase, Cucumber, ArchUnit, Gatling, Elasticsearch, Kafka, Elastic Stack, Prometheus
   * Client Side - HTML5, Bootstrap, TypeScript, Angular, React.
   * CI / CD - Jenkins, Travis CI, Github Workflows, Docker, Docker Compose, Kubernetes, Minikube, Minishift, OpenShift, Jenkins X, KOTS, ECS (Elastic Container Service), EKS (Elastic Kubernetes Service)
@@ -119,7 +122,8 @@ Each service is:
 - API Gateway 	: Spring Cloud Gateway
 - Externalized configuration  : Spring Cloud Config
 - Failure- and latency-aware, load balancing, Cluster failover and Retry
-- Distributed tracing : Spring Cloud Sleuth
+- Distributed tracing : Spring Cloud Sleuth.
+- Hexagonal Architecture (Ports and Adapters Pattern)
 - Consumer Driven Contract : Spring Cloud Contract.
 - Security : Access Token with Okta, Spring Cloud Security
 - Observability : 
@@ -145,18 +149,20 @@ Each service is:
 
 This is a Maven project. However, you  need to have installed :
   - Java Development Kit >= 11
+  - React "^16.13.1"
   - Docker
   - Maven
   - Kubernates CLI
   - Minikube
   - Minishift
   - Ansible
+  - Jenkins
 
 The details of how to build and run the services depend slightly on whether you are using  
   - SaaS (Software as a Service)
   - IaaS (Infrastructure as a service)
   - PaaS (Platform as a Service)
-  - Local.
+  - Local
 
 ## Building and running using SaaS
 
@@ -165,9 +171,9 @@ First, must sign up to get your credentials in order to get free access to the S
 Next, build the application
 
 ```
-git clone https://github.com/rcherara/rcherara-spring-cloud-microservice.git
-cd rcherara-spring-cloud-microservice
-mvn install
+  $ git clone https://github.com/rcherara/rcherara-spring-cloud-microservice.git
+  $ cd rcherara-spring-cloud-microservice
+  $ mvn install
 ```
 
 Next, you can launch the services using Docker Compose:
@@ -180,18 +186,25 @@ Next, you can launch the services using Docker Compose:
 
 - [x] config-service
 - [x] discovery-service
-- [ ] gateway-service
+- [x] gateway-service
 - [x] config-repo
-- [ ] vehicle-service
+- [x] vehicle-service
+- [x] vehicle-ui-web
+- [ ] vehicle-ui-mobile
 - [ ] dealership-service
 - [ ] transaction-service
 - [X] admin-dashboard
-- [ ] Docker Files, Docker Composite
-- [ ] Jenkins Files
+- [ ] Shell Scripts  files (startRabbit, startDevVault, set-local-env-git, install-letsencrypt-cert, create-services, create-release-branch)
 - [ ] RabbitMq 
 - [ ] Kafka
-- [ ] UI
-- [ ] CI / CD
+- [x] UI React
+- [x] UI AngularJS
+- [ ] CI / CD - Jenkins
+- [ ] CI / CD - Github Workflows 
+- [ ] CI / CD - Travis CI
+- [ ] CI / CD - Kubernetes (config, configmap, deployment, service, support-bundle, replicated-app)
+- [ ] CI / CD - Docker, Docker Compose
+- [ ] CI / CD - Jenkins X
 - [ ] Auth-server
 - [ ] IaC
 
@@ -199,26 +212,26 @@ Next, you can launch the services using Docker Compose:
 
 Run locally with Maven, Visual Studio Code, STS, Eclipse or IntelliJ:
 
-http://localhost:8080 - Gateway
-http://localhost:8761 - Eureka Discovery Dashboard
-http://localhost:7761 - Config Server
-http://localhost:9761 - Spring Admin Dashboard
-http://localhost:8081 - Vehicle service
-http://localhost:8082 - Dealership service
-http://localhost:8083 - transaction service
+http://localhost:8080  - Gateway
+http://localhost:8761  - Eureka Discovery Dashboard
+http://localhost:7761  - Config Server
+http://localhost:9761  - Spring Admin Dashboard
+http://localhost:8081  - Vehicle service
+http://localhost:8082  - Dealership service
+http://localhost:8083  - Transaction service
 http://localhost:15000 - RabbitMq (username/password: guest/guest)
 
 
 
 Run with docker-compose:
 
-http://localhost:5080 - Gateway
-http://localhost:5761 - Eureka Discovery Dashboard
-http://localhost:5760 - Config Server
-http://localhost:5761 - Spring Admin Dashboard
-http://localhost:5081 - Vehicle service
-http://localhost:5082 - Dealership service
-http://localhost:5083 - transaction service
+http://localhost:5080  - Gateway
+http://localhost:5761  - Eureka Discovery Dashboard
+http://localhost:5760  - Config Server
+http://localhost:5761  - Spring Admin Dashboard
+http://localhost:5081  - Vehicle service
+http://localhost:5082  - Dealership service
+http://localhost:5083  - Transaction service
 http://localhost:15000 - RabbitMq (username/password: guest/guest)
 
 
@@ -226,13 +239,14 @@ http://localhost:15000 - RabbitMq (username/password: guest/guest)
 
 Spring Cloud Config Server offers the following benefits:
 
-HTTP resource-based API for external configuration (name-value pairs or equivalent YAML content)
+- HTTP resource-based API for external configuration (name-value pairs or equivalent YAML content)
 
-Encrypt and decrypt property values (symmetric or asymmetric)
+- Encrypt and decrypt property values (symmetric or asymmetric)
 
-Embeddable easily in a Spring Boot application using @EnableConfigServer
+- Embeddable easily in a Spring Boot application using @EnableConfigServer
 
 ## Spring Cloud Config Client
+
 Spring Cloud Config Client lets you:
 
 - Bind to the Config Server and initialize Spring Environment with remote property sources.
@@ -253,7 +267,9 @@ Bootstrap application context: It binds to the Config Server and decrypts proper
 ## Using the Swagger UI
 
 The services are Swagger "enabled".
+
 Open the url http://${DOCKER_HOST_IP}:<SERVICE-PORT>/swagger-ui.html
+
 All Swagger Resources(groups) : http://localhost:<SERVICE-PORT>/swagger-resources
 Swagger UI endpoint: http://localhost:<SERVICE-PORT>/swagger-ui.html
 Swagger docs endpoint: http://localhost:<SERVICE-PORT>/v2/api-docs
@@ -285,17 +301,20 @@ mvn clean package -DskipTests
 ### Vehicle service
 
 To run locally:
-```shell
-cd vehicle-service
-java -jar target/vehicle-service-0.0.1.BUILD-SNAPSHOT.jar
-```
+  ```shell
+  $ cd vehicle-service
+  $ java -jar target/vehicle-service-0.0.1.BUILD-SNAPSHOT.jar
+  ```
+
 ### Dealership service
+
 To run locally:
 ```shell
 cd dealership-service
 java -jar target/dealership-service-0.0.1.BUILD-SNAPSHOT.jar
 ```
 ### Transaction service
+
 To run locally:
 ```shell
 cd transaction-service
@@ -303,6 +322,7 @@ java -jar target/transaction-service-0.0.1.BUILD-SNAPSHOT.jar
 ```
 
 ### Gateway Server
+
 To run locally:
 ```shell
 cd gateway-service
@@ -310,6 +330,7 @@ java -jar target/gateway-service-0.0.1.BUILD-SNAPSHOT.jar
 ```
 
 ###  Discovery server
+
 To run locally:
 ```shell
 cd discovery-service
@@ -317,6 +338,7 @@ java -jar target/discovery-service-0.0.1.BUILD-SNAPSHOT.jar
 ```
 
 ###  Admin server
+
 To run locally:
 ```shell
 cd admin-service
@@ -325,6 +347,7 @@ java -jar target/admin-service-0.0.1.BUILD-SNAPSHOT.jar
 
 
 # Guides
+
 The following guides illustrate how to use some features concretely:
 * [Pattern: API Gateway / Backends for Frontends](https://microservices.io/patterns/apigateway.html)
 * [Pattern: Microservice Architecture](https://microservices.io/patterns/microservices.html/)
@@ -333,6 +356,7 @@ The following guides illustrate how to use some features concretely:
 * [Asynchronous microservices](http://eventuate.io/whyeventdriven.html)
 
 ## Reference
+
 1.  [Microservice Architecture](https://microservices.io/patterns/microservices.html)
 2.  [Spring Cloud Gateway](https://cloud.spring.io/spring-cloud-gateway/reference/html/)
 3.  [Minishift– Cherara Reddag blog](rcherara.ca/installing-minishift-on-macos/)
@@ -347,15 +371,17 @@ The following guides illustrate how to use some features concretely:
 12. [Spring Cloud](https://spring.io/projects/spring-cloud)
 13. [The Twelve Factors](https://12factor.net)
 14. [Maximize Observability of your CI/CD Pipeline with LogDNA](https://logdna.com/maximize-observability-of-your-ci-cd-pipeline-with-logdna/)
-15. [ Set Up A CI/CD Pipeline With Kubernetes ](https://www.linux.com/tutorials/set-cicd-pipeline-kubernetes-part-1-overview/)
-
+15. [Set Up A CI/CD Pipeline With Kubernetes ](https://www.linux.com/tutorials/set-cicd-pipeline-kubernetes-part-1-overview/)
+16. [Database Internationalization](https://medium.com/walkin/database-internationalization-i18n-localization-l10n-design-patterns-94ff372375c6)
+17. [The Exagonal Architecture](https://beyondxscratch.com/2017/08/19/decoupling-your-technical-code-from-your-business-logic-with-the-hexagonal-architecture-hexarch/)
 # Help me to get the app famous!
-Eco-system  for a car dealer based on a microservices architecture is open source and want to give to you the basics knowledge about cloud native application, architecture, DevOps with Spring and java technologies. A star to this project will be appreciate!
+
+Eco-system  for a car dealer based on a microservices architecture is open source and want to give to you the basics knowledge about cloud native application, architecture, DevOps with Docker, Kubernate Cloud, Spring Java, React Typescript and  technologies. A star to this project will be appreciate!
 
 ## Got questions?
 
 ### Author
 CHERARA REDDAH.
 
-* [Cherara Reddah linkedin](https://www.linkedin.com/in/cherarareddah/)
-* [Cherara Reddah blog](https://rcherara.ca)
+* [Cherara Reddah Linkedin](https://www.linkedin.com/in/cherarareddah/)
+* [Cherara Reddah Bog](https://rcherara.ca)
