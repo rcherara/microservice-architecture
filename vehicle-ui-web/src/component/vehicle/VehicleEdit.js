@@ -1,8 +1,8 @@
 import React, { Component }  from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label} from 'reactstrap';
-import i18n from '../../i18n';
-import AppNavbar from '../shared/AppNavbar';
+import i18n from '../../config/i18n';
+import AppNavbar from '../containers/AppNavbar';
 // import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 // import { InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
@@ -70,6 +70,8 @@ class VehicleEdit extends Component {
     });
     this.props.history.push('/vehicles');
   }
+
+  
 
   render() {
     const {item} = this.state;

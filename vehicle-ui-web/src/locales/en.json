@@ -1,16 +1,58 @@
 {
-  "appName": "Vehicles UI React APP",
+  "appName": "Vehicles UI React APP Web",
+  "404": "الصفحة غير متوفرة",
+  "msg404": "الصفحة التي تبحث عنها تم نقلها أو إزالتها أو إعادة تسميتها ",
   "navigation": {
     "home": "Home",
     "about": "About",
     "contact": "Contact",
     "vehicles": "Vehicles",
     "add": "Add",
+    "login": "login",
+    "language": "Language preference",
+    "languages": "List of supported languages",
+    "countries": "Countries",
     "settings": "Settings"
   },
+  "countries": {
+    "name": "name",
+    "nativeName": "Native Name",
+    "alpha2Code": "Alpha Code",
+    "callingCodes": "Calling Codes",
+    "capital": "Capital",
+    "region": "Region",
+    "subregion": "Sub region",
+    "population": "Population",
+    "timezones": "Timezones",
+    "currenciesSymbol": "Currencies Symbol",
+    "currenciesName": "Currencies Name",
+    "flag": "flag"
+  },
+  "languages": {
+    "title": "Select language ",
+    "backend": "Select language of service Backend",
+    "short": {
+      "fr": "Fr",
+      "en": "En",
+      "it": "It",
+      "ar": "عر",
+      "de":"De",
+      "es": "Es"
+    },
+    "long": {
+      "fr": "Français",
+      "en": "English",
+      "it": "Italiano",
+      "ar": "عربيه",
+      "de":"Deutsch",
+      "es": "Espanol"
+    }
+  },
   "home": {
-    "welcome": "Welcome to %{appName}!",
-    "list": "List of  Vehicles",
+    "welcome": "Welcome to Vehicles UI APP web!",
+    "listVehicles":  "List of  Vehicles",
+    "listLanguages": "List of  Languages",
+    "listCountries": "List of  Countries",
     "manage": "Manage Vehicles",
     "name": "CHERARA Reddah",
     "count": "There are {{countVehicles}} in the system."  
@@ -34,8 +76,8 @@
     "delete": "Delete",
     "list": "List",
     "name": "Name",
-		"vin": "Vehicle Identification Number",      
-	  "plate": "Vehicle registration plate",  
+		"vin": "Identification Number",      
+	  "plate": "Registration plate",  
 	  "year": "Year", 
     "position": "Position", 
     "location": "Location", 
@@ -48,10 +90,15 @@
     "engine": "Engine", 
     "tyre": "Tyre", 
     "price": "Price", 
-    "numOfWindows": "Num of windows",  
-    "awd": "AWS", 
+    "numOfWindows": "Windows",  
     "cost": "Cost", 
-	  "electric": "Electric" 
+    "aws": "AWS", 
+    "view": "View",
+    "electric": "Electric",
+    "language_code": "Language code",
+    "name_in_native_language": "Name in native language",
+    "date_format":"Date format",
+    "currency": "Currency"  
   },
   "delete": {
     "vehicle": "Delete Vehicle"

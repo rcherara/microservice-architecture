@@ -1,34 +1,31 @@
-import i18n from 'i18next';
-import { reactI18nextModule } from 'react-i18next';
-import en from '../locale/en';
-import fr from '../locale/fr';
-import it from '../locale/it';
-import de from '../locale/de';
-import es from '../locale/es';
-import es from '../locale/ar';
+import i18n from 'i18n-js';
 
-i18n
-  .use(reactI18nextModule)
-  .init({
-    resources: {
-      en,
-      fr,
-      it,
-      de,
-      es,
-      ar,
-    },
-    fallbackLng: 'en',
-    debug: true,
-    ns: ['translations'],
-    defaultNS: 'translations',
-    keySeparator: false,
-    interpolation: {
-      escapeValue: false,
-      formatSeparator: ',',
-    },
-    react: {
-      wait: true,
-    },
-  });
+import en from '../locales/en.json';
+import de from '../locales/de.json';
+import es from '../locales/es.json';
+import ar from '../locales/ar.json';
+import it from '../locales/it.json';
+import fr from '../locales/fr.json';
+
+
 export default i18n;
+
+
+  //i18n.defaultLocale = 'ar';
+  //i18n.locale = 'ar';
+  // Enable fallbacks if you want `en-US` and `en-GB` to fallback to `en`
+  i18n.fallbacks = true;
+  i18n.translations = { en, fr, ar, es, it,de };
+
+  export const strings = (name, params = {}) => i18n.t(name, params);
+  
+  export const switchLanguage = (lang, component) => {
+    i18n.locale = lang;
+    //this.forceUpdate();
+    //component.forceUpdate();
+  };
+ 
+
+
+// get the language from the settings reducer
+export const selectLanguage = state => state.i18n.locale;

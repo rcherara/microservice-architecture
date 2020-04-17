@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.ico{
+  content: '';
+  display: block;
+  height: 40px;  /*height of icon */
+  width: 40px;  /*width of icon */
+  position: absolute;
+    /*where to replace the icon */
+  top: 0px;
+  left: -40px;
+    /*background */
+  background: #F8E6AE url(../images/delete-1.png) no-repeat 0px 0px;
+}
+
+.btn span.icon {
+  background: url(../images/delete-1.png) no-repeat;
+  float: left;
+  top: 0px;
+  left: -40px;
+  width: 10px;
+  height: 10px;
+
+}
+
+
+
+button.btn.add::before {
+  font-family: fontAwesome;
+  content: "\f067\00a0";
+}
+
+button.btn.edit::before {
+  font-family: fontAwesome;
+  content: "\f044\00a0";
+}
+
+button.btn.save::before {
+  font-family: fontAwesome;
+  content: "\f00c\00a0";
+}
+
+button.btn.cancel::before {
+  font-family: fontAwesome;
+  content: "\f00d\00a0";
+}
+
+button.btn.cancel::before{
+  font-family: fontAsesome;
+  content: "\f1f8\00a0"
+}
+

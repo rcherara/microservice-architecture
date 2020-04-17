@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 //import axios from 'axios';
-import ApiService from "../../service/ApiService";
+import ApiServiceVehicle from "../../service/ApiServiceVehicle";
 import { Container} from 'reactstrap';
 //import { Button, Container, Form, FormGroup, Input, Label} from 'reactstrap';
-import AppNavbar from '../shared/AppNavbar';
-import i18n from '../../i18n';
+import AppNavbar from '../containers/AppNavbar';
+import i18n from '../../config/i18n';
 class AddVehicleComponent extends Component{
     constructor(props){
         super(props);
@@ -27,16 +27,30 @@ class AddVehicleComponent extends Component{
             AWD: '',
             electric: '',
             cost: '',
-            message: null
+            message: null,
+            file: null,
         }
         this.saveVehicle = this.saveVehicle.bind(this);
+
     }
     saveVehicle = (e) => {
         e.preventDefault();
         let vehicle = {name: this.state.name, vin: this.state.vin, firstName: this.state.firstName, lastName: this.state.lastName, age: this.state.age, salary: this.state.salary};
-        ApiService.addVehicle(vehicle)
+        ApiServiceVehicle.addVehicle(vehicle)
             .then(res => {
                 this.setState({message : 'Vehicle added successfully.'});
+                this.props.history.push('/vehicles');
+            });
+    }
+    onChange = (e) =>
+        this.setState({ [e.target.name]: e.target.value });
+
+    saveVehicle = (e) => {
+        e.preventDefault();
+        let vehicle = {id: this.state.id, name: this.state.name, year: this.state.year, vin: this.state.vin, mileage: this.state.mileage, price: this.state.price};
+        ApiServiceVehicle.editVehicle(vehicle)
+            .then(res => {
+                this.setState({message : i18n.t('update.mess')});
                 this.props.history.push('/vehicles');
             });
     }
@@ -73,6 +87,7 @@ class AddVehicleComponent extends Component{
                             <div className="form-group">
                                 <label>price:</label>
                                 <input type="number" placeholder="price" name="price" className="form-control" value={this.state.price} onChange={this.onChange}/>
+                                <input type="file" onChange={this.handleFileChange}/>
                             </div>
                             <button className="btn btn-success" onClick={this.saveVehicle}>Save</button>
                         </form>

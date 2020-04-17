@@ -1,6 +1,6 @@
 {
   "name": "vehicle-ui-react",
-  "description": "Vehicle UI with react",
+  "description": "Multi-Language Vehicle UI web with react ",
   "version": "1.0.0",
   "license": "MIT",
   "email": "cherara.reddah@icloud.com",
@@ -14,17 +14,16 @@
     "url": "https://rcherara.ca"
   },
   "keywords": [
-    "internationalization",
-    "frontend",
-    "service",
+    "Internationalization",
+    "Frontend",
+    "Service",
     "rcherara",
-    "spring-boot",
-    "react",
-    "vehicle",
+    "Spring-boot",
+    "React",
+    "Vehicle",
     "i18n",
     "i18n-js",
-    "intl",
-    "react-intl"
+    "Multi-Language"
   ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.1.1",
@@ -37,6 +36,8 @@
     "eslint-plugin-flowtype": "^4.6.0",
     "http-proxy-middleware": "^1.0.1",
     "i18n-js": "^3.5.1",
+    "i18next-xhr-backend": "^3.2.2",
+    "react-i18next": "^10.6.1",
     "install": "^0.13.0",
     "intl": "^1.2.5",
     "jquery": "^3.4.1",
@@ -57,7 +58,8 @@
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
-    "jsdoc": "^3.6.3"
+    "jsdoc": "^3.6.3",
+    "@fortawesome/fontawesome-free": "^5.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -78,7 +80,10 @@
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
     ]
   }
 }

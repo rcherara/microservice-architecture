@@ -1,15 +1,56 @@
 {
   "appName": " برنامج  تسيير المركبات   -  UI React APP",
+  "404": "الصفحة غير متوفرة",
+  "msg404": "الصفحة التي تبحث عنها تم نقلها أو إزالتها أو إعادة تسميتها ",
   "navigation": {
     "home": "الصفحة الرئيسية",
     "about": "حول",
     "contact": "اتصل",
     "vehicles": "مركبات",
     "add": "أضف",
+    "login": "تسجيل الدخول",
+    "language": "تفضيل اللغات",
+    "languages": "قائمة تفضيلات اللغة",
+    "countries": "countries",
     "settings": "الإعدادات"
   },
+  "countries": {
+    "name": "name",
+    "nativeName": "Native Name",
+    "alpha2Code": "Alpha Code",
+    "callingCodes": "Calling Codes",
+    "capital": "Capital",
+    "region": "Region",
+    "subregion": "Sub region",
+    "population": "Population",
+    "timezones": "Timezones",
+    "flag": "flag"
+  },
+  "languages": {
+    "title": "اختار اللغة ",
+    "backend": "اختار لغة الخادم الخلفي ",
+    "short": {
+      "fr": "Fr",
+      "en": "En",
+      "it": "It",
+      "ar": "عر",
+      "de":"De",
+      "es": "Es"
+    },
+    "long": {
+      "fr": "Français",
+      "en": "English",
+      "it": "Italiano",
+      "ar": "عربيه",
+      "de":"Deutsch",
+      "es": "Espanol"
+    }
+  },
   "home": {
-    "welcome": "مرحبًا بك",
+    "welcome": "مرحبا بكم في برنامج تسيير المركبات",
+    "listVehicles":  "قائمة المركبات",
+    "listLanguages": "قائمة اللغات المعمول بها",
+    "listCountries": "قائمة البلدان",
     "list": "قائمة المركبات",
     "manage": "تسيير المركبات",
     "name": "شرارة رضا",
@@ -33,9 +74,9 @@
     "update": "تحديث",
     "delete": "حذف",
     "list": "قائمة",
-    "name": "name",
-		"vin": "رقم تعريف السيارة",      
-	  "plate": "لوحة تسجيل المركبة",  
+    "name": "اسم",
+		"vin": "رقم التعريف",      
+	  "plate": "لوحة التسجيل",  
 	  "year": "العام", 
     "position": "موقع", 
     "location": "مكان", 
@@ -48,10 +89,15 @@
     "engine": "محرك", 
     "tyre": "tyre", 
     "price": "ثمن", 
-    "numOfWindows": "عدد النوافذ",  
-    "awd": "رباعية الدفع", 
+    "numOfWindows": "النوافذ",  
     "cost": "تكلفة", 
-	  "electric": "كهرباء" 
+    "aws": "رباعية الدفع", 
+    "view": "عرض", 
+    "electric": "كهرباء",
+    "language_code": "رمز اللغة",
+    "name_in_native_language": "الاسم باللغة الأصلية",
+    "date_format":"صيغة التاريخ",
+    "currency": "عملة" 
   },
   "delete": {
     "vehicle": "حذف مركبة"

@@ -1,30 +1,20 @@
 import React, { Component } from "react";
-import "../../App.css";
-import AppNavbar from "../shared/AppNavbar";
+import "../../css/App.css";
+import AppNavbar from "../containers/AppNavbar";
+import Footer from "../containers/Footer";
 import { Link } from "react-router-dom";
 import { Button, Container, Label } from "reactstrap";
-//import { FormattedMessage } from "react-intl"; // IntlProvider
-import i18n from "../../i18n";
+import i18n from "../../config/i18n";
 import PropTypes from 'prop-types';
-
-//import LocaleButton from '../shared/LocaleButton';
-// Translation Higher Order Component
-import {
-  setTranslations,
-  setDefaultLanguage,
-  setLanguageCookie,
-  setLanguage,
-  translate,
-} from 'react-switch-lang';
+import { setTranslations, setDefaultLanguage, setLanguageCookie, setLanguage, translate,} from 'react-switch-lang';
 import en from "../../locales/en";
 import ar from "../../locales/ar";
+import { strings } from "../../config/i18n";
  
 // Do this two lines only when setting up the application
-setTranslations({ en, ar });
-setDefaultLanguage('ar');
-
-
-
+setTranslations({ en, ar});
+setDefaultLanguage(i18n.locale);
+setLanguage(i18n.locale);
 // If you want to remember selected language
 setLanguageCookie();
 class Home extends Component {
@@ -35,23 +25,21 @@ class Home extends Component {
   componentDidMount() {
     setInterval(this.hello, 1000);
     setInterval(this.VehicleCount, 1000);
-   // const ltag = i18n.locale;
-    this.setState({ MessageFromServer: "new value" });
+    setInterval(this.MessageFromServer, 1000);
     document.title = i18n.t("home.welcome");
-    fetch('/api/message?msg=welcome')
-      .then(res => res.json())
-      .then((MessageFromServer) => {
-        this.setState({ MessageFromServer: MessageFromServer })
-        console.log("Message from server with componentDidMount ", this.state.MessageFromServer)
-      })
-      .catch(console.log)
+
   }
+
   hello = () => {
-    fetch("/api/time")
+    fetch("/api/time",{
+      method: 'GET', // *GET, POST, PUT, DELETE, etc.
+      headers: {'Accept-Language': 'ar'}
+    })
       .then(response => response.text())     
-      .catch(reason => console.log('Promise has been rejected!'))
+      .catch(reason => console.log('Call /api/time backend has been rejected!'))
       .then(message => {
         this.setState({ message: message });
+        
       })
       .then(response => console.log(`The Vehicle API answer has been fulfilled ${response}`));
   };
@@ -63,7 +51,12 @@ class Home extends Component {
       });
   };
   MessageFromServer = () => {
-    fetch("/api/message?msg=welcome")
+    fetch("/api/message?msg=welcome",{
+      method: 'GET', // or 'PUT'
+      headers: {
+        'Accept-Language': '{i18n.locale }',    
+      }
+    })
       .then(response => response.text())
       .then(MessageFromServer => {
         this.setState({ MessageFromServer: MessageFromServer });
@@ -72,49 +65,51 @@ class Home extends Component {
   
   render() {
     const aaa = this.state.MessageFromServer; 
-    const { t } = this.props;   
-    const languageName = {
-      en: "English",
-      fr: "Français",
-      ar: "عربي",
-      de: "Deutsch",
-    }
-   
-     console.log(" Tag LG   ", this.state.ltag);
     return (
       <div>
         <AppNavbar />
         <Container fluid>
           <Button color="link">
-            <Link to="/vehicles">{i18n.t("home.manage")}</Link>
+            <Link to="/list-vehicles"> {strings('home.manage','')}</Link>
           </Button>
         </Container>
         <Container fluid>
           <Button color="link">
-            <Link to="/list-vehicles">{i18n.t("home.list")} </Link>
+            <Link to="/list-vehicles">{strings('home.listVehicles','')}</Link>
+          </Button>
+        </Container>
+        <Container fluid>
+          <Button color="link">
+            <Link to="/list-languages">{strings('home.listLanguages','')}</Link>
+          </Button>
+        </Container>
+        <Container fluid>
+          <Button color="link">
+            <Link to="/list-countries">{strings('home.listCountries','')}</Link>
           </Button>
         </Container>
         <Container fluid>
           <Label>
-            AAAA {this.state.MessageFromServer} BBBB {this.aaa} CCC {this.ltag} DDD {i18n.locale } 
+            -----
+            <br></br> === MessageFromServer : {this.state.MessageFromServer} 
+            <br></br> aaaa: {this.aaa} 
+            <br></br> hello : {this.state.hello} 
+            <br></br> i18n.locale  : {i18n.locale } 
           </Label>
           <br></br>
-         1- {t('home.manage')}<br></br>
-         2-  {t('home.manage', null, 'fr')}<br></br>
-         3-  {t('hello', { name: 'World' })}<br></br>
-         4-  {t('fallback')}<br></br>
-          <br></br>
-        <button type="button" onClick={this.handleSetLanguage('fr')}>
-          Switch language to ARABIC
-        </button>
+            1- {strings('home.manage','')} <br></br>
+            2- {strings('home.manage','en')} <br></br>
+            3-  {strings('home.count',{ countVehicles: '123' })} <br></br>
+            4-    aaa = {aaa}    <br></br>
+            5-  <Label>{strings('home.manage','')}</Label>
+          <br></br>      
           <br></br>
           <h1>
-            {i18n.t("home.count", {
-              countVehicles: this.state.VehicleCount
-            })}
+            {i18n.t("home.count", {countVehicles: this.state.VehicleCount})}
           </h1>
           <Label>From Vehicle Api Server : {this.state.message}</Label>
         </Container>
+        <Footer />
       </div>
     );
   }

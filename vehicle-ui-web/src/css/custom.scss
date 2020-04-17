@@ -54,5 +54,5 @@ $theme-colors: map-remove($theme-colors, "success", "info", "danger");
     }
     
     .a {
-      background: url('./images/where_vin.png') center/cover;
+      background: url('../images/where_vin.png') center/cover;
     }

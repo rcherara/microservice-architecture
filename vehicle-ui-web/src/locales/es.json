@@ -1,15 +1,58 @@
 {
   "appName": "Vehicles UI React APP",
+  "404": "الصفحة غير متوفرة",
+  "msg404": "الصفحة التي تبحث عنها تم نقلها أو إزالتها أو إعادة تسميتها ",
   "navigation": {
     "home": "Home",
     "about": "About",
     "contact": "Contact",
     "vehicles": "Vehicles",
     "add": "Add",
+    "language": "Language preference",
+    "languages": "List of supported languages",
+    "login": "Conectarse",
+    "countries": "countries",
     "settings": "Settings"
   },
+  "countries": {
+    "name": "name",
+    "nativeName": "Native Name",
+    "alpha2Code": "Alpha Code",
+    "callingCodes": "Calling Codes",
+    "capital": "Capital",
+    "region": "Region",
+    "subregion": "Sub region",
+    "population": "Population",
+    "timezones": "Timezones",
+    "currenciesSymbol": "Currencies Symbol",
+    "currenciesName": "Currencies Name",
+    "flag": "flag"
+  },
+  "languages": {
+    "title": "Seleccione el idioma",
+    "backend": "Select language of service backend",
+    "short": {
+      "fr": "Fr",
+      "en": "En",
+      "it": "It",
+      "ar": "عر",
+      "de":"De",
+      "es": "Es"
+    },
+    "long": {
+      "fr": "Français",
+      "en": "English",
+      "it": "Italiano",
+      "ar": "عربيه",
+      "de":"Deutsch",
+      "es": "Espanol"
+    }
+  },
   "home": {
-    "welcome": "Welcome to %{appName}!",
+    "welcome": "Welcome to Vehicles UI APP web!",
+    "listVehicles":  "List of  Vehicles",
+    "listLanguages": "List of  Languages",
+    "listCountries": "List of  Countries",
     "list": "List of  Vehicles",
     "manage": "Manage Vehicles",
     "name": "CHERARA Reddah",
@@ -49,9 +92,14 @@
     "tyre": "Tyre", 
     "price": "Price", 
     "numOfWindows": "Num of windows",  
-    "awd": "AWS", 
-    "cost": "Cost", 
-	  "electric": "Electric" 
+    "cost": "Cost",
+    "aws": "AWS", 
+    "view": "View",
+    "electric": "Electric",
+    "language_code": "language_code",
+    "name_in_native_language": "Name in Native language",
+    "date_format":"date_format",
+    "currency": "currency" 
   },
   "delete": {
     "vehicle": "Delete Vehicle"

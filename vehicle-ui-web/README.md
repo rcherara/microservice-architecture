@@ -1,3 +1,19 @@
+# Multi-Language-UI-Web-Vehicle in React Native
+
+ This app  support English, Arabic, French, German, Spanish  and Italian languages. And use Spring-boot service Backend.
+
+# Prerequisites
+This UI requires basic knowledge of React Native. To set up your development machine, follow the official guide [here](http://reactnative.dev/docs/0.59/getting-started).
+
+To make sure we are on the same page, following are the versions used in this tutorial -
+
+Node v10.15.0
+npm 6.4.1
+yarn 1.16.0
+react-native 0.59.9
+react-native-localize 1.1.3
+i18n-js 3.3.0
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Project Structure
