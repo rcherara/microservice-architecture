@@ -212,27 +212,27 @@ Next, you can launch the services using Docker Compose:
 
 Run locally with Maven, Visual Studio Code, STS, Eclipse or IntelliJ:
 
-http://localhost:8080  - Gateway
-http://localhost:8761  - Eureka Discovery Dashboard
-http://localhost:7761  - Config Server
-http://localhost:9761  - Spring Admin Dashboard
-http://localhost:8081  - Vehicle service
-http://localhost:8082  - Dealership service
-http://localhost:8083  - Transaction service
-http://localhost:15000 - RabbitMq (username/password: guest/guest)
+http://localhost:8080  :point_right: Gateway
+http://localhost:8761  :point_right: Eureka Discovery Dashboard
+http://localhost:7761  :point_right: Config Server
+http://localhost:9761  :point_right: Spring Admin Dashboard
+http://localhost:8081  :point_right: Vehicle service
+http://localhost:8082  :point_right: Dealership service
+http://localhost:8083  :point_right: Transaction service
+http://localhost:15000 :point_right: RabbitMq (username/password: guest/guest)
 
 
 
 Run with docker-compose:
 
-http://localhost:5080  - Gateway
-http://localhost:5761  - Eureka Discovery Dashboard
-http://localhost:5760  - Config Server
-http://localhost:5761  - Spring Admin Dashboard
-http://localhost:5081  - Vehicle service
-http://localhost:5082  - Dealership service
-http://localhost:5083  - Transaction service
-http://localhost:15000 - RabbitMq (username/password: guest/guest)
+http://localhost:5080  :point_right: Gateway
+http://localhost:5761  :point_right: Eureka Discovery Dashboard
+http://localhost:5760  :point_right: Config Server
+http://localhost:5761  :point_right: Spring Admin Dashboard
+http://localhost:5081  :point_right: Vehicle service
+http://localhost:5082  :point_right: Dealership service
+http://localhost:5083  :point_right: Transaction service
+http://localhost:15000 :point_right: RabbitMq (username/password: guest/guest)
 
 
 ## Spring Cloud Config Server
