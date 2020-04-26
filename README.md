@@ -3,7 +3,7 @@
 
 ![Java CI](https://github.com/rcherara/building-a-microservice-architecture/workflows/Java%20CI/badge.svg?branch=master)
 
-# Best Practices of a Microservice Architecture with Spring Cloud, CI, CD and IaC
+# Best Practices of a Microservice Architecture with Spring Cloud, React, CI, CD and IaC
 
 This repository is Dealer Management Systems based on a microservices architecture.
 
@@ -198,7 +198,7 @@ Next, you can launch the services using Docker Compose:
 - [ ] RabbitMq 
 - [ ] Kafka
 - [x] UI React
-- [x] UI AngularJS
+- [ ] UI AngularJS
 - [ ] CI / CD - Jenkins
 - [ ] CI / CD - Github Workflows 
 - [ ] CI / CD - Travis CI

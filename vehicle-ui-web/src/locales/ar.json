@@ -11,20 +11,22 @@
     "login": "تسجيل الدخول",
     "language": "تفضيل اللغات",
     "languages": "قائمة تفضيلات اللغة",
-    "countries": "countries",
+    "countries": "بلدان",
     "settings": "الإعدادات"
   },
   "countries": {
-    "name": "name",
-    "nativeName": "Native Name",
-    "alpha2Code": "Alpha Code",
-    "callingCodes": "Calling Codes",
-    "capital": "Capital",
-    "region": "Region",
-    "subregion": "Sub region",
-    "population": "Population",
-    "timezones": "Timezones",
-    "flag": "flag"
+    "name": "اسم",
+    "nativeName": "الاسم الأصلي",
+    "alpha2Code": "رمز",
+    "callingCodes": "رموز الاتصال",
+    "capital": "عاصمة",
+    "region": "المنطقة",
+    "subregion": "المنطقة الفرعية",
+    "population": "تعداد السكان",
+    "timezones": "المناطق الزمنية",
+    "currenciesSymbol": "رمز |",
+    "currenciesName": "عملة",
+    "flag": "العلم"
   },
   "languages": {
     "title": "اختار اللغة ",

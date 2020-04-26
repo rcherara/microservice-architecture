@@ -11,7 +11,7 @@
     "language": "Language preference",
     "languages": "List of supported languages",
     "login": "Se connecter",
-    "countries": "countries",
+    "countries": "Pays",
     "settings": "Réglages"
   },
   "home": {
@@ -36,17 +36,17 @@
     "message":"Vehicle added successfully."
   },
   "countries": {
-    "name": "name",
-    "nativeName": "Native Name",
-    "alpha2Code": "Alpha Code",
+    "name": "Nom",
+    "nativeName": "Nom natif",
+    "alpha2Code": "Code",
     "callingCodes": "Calling Codes",
     "capital": "Capital",
     "region": "Region",
     "subregion": "Sub region",
     "population": "Population",
     "timezones": "Timezones",
-    "currenciesSymbol": "Currencies Symbol",
-    "currenciesName": "Currencies Name",
+    "currenciesSymbol": "Symbol",
+    "currenciesName": "Currencie",
     "flag": "flag"
   },
   "languages": {

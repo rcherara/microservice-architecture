@@ -205,3 +205,4 @@ sudo pip3 install pyicu
 
 
 npm install react-switch-lang --save
+npm install react-icons --save

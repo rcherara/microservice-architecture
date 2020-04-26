@@ -1,12 +1,10 @@
 import i18n from 'i18n-js';
-
 import en from '../locales/en.json';
 import de from '../locales/de.json';
 import es from '../locales/es.json';
 import ar from '../locales/ar.json';
 import it from '../locales/it.json';
 import fr from '../locales/fr.json';
-
 
 export default i18n;
 
@@ -25,7 +23,5 @@ export default i18n;
     //component.forceUpdate();
   };
  
-
-
 // get the language from the settings reducer
 export const selectLanguage = state => state.i18n.locale;

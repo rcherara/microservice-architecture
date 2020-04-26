@@ -32,7 +32,7 @@ class AppNavbar extends Component {
   componentWillUnmount(){
     // Called IMMEDIATELY before a component is unmounted
     // Good for cleaning up listeners
-    i18n.locale = this.state.myLanguage;
+    //i18n.locale = this.state.myLanguage;
   };
   render() {
     return <Navbar color="dark" dark expand="md" >

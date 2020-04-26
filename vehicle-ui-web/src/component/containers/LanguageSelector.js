@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import {Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { strings, switchLanguage } from "../../config/i18n";
-  
 
   const LanguageSelector = (props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen(prevState => !prevState);
   const changeLanguage = (event) => {
     this.props.location= (event.target.value); 
+    this.location.reload(true);
   };
- 
-  
- 
   return (
     <div >
       <div >

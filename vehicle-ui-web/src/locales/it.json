@@ -38,15 +38,15 @@
   "countries": {
     "name": "name",
     "nativeName": "Native Name",
-    "alpha2Code": "Alpha Code",
+    "alpha2Code": "Code",
     "callingCodes": "Calling Codes",
     "capital": "Capital",
     "region": "Region",
     "subregion": "Sub region",
     "population": "Population",
     "timezones": "Timezones",
-    "currenciesSymbol": "Currencies Symbol",
-    "currenciesName": "Currencies Name",
+    "currenciesSymbol": "Symbol |",
+    "currenciesName": "Name Currencies",
     "flag": "flag"
   },
   "languages": {

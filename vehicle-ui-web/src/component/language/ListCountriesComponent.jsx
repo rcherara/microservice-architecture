@@ -24,76 +24,65 @@ class ListCountriesComponent extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="table-responsive-sm">
         <AppNavbar />
         <Container fluid>   
             <div className="float-right">
                 <img src={CountryIcon} width="50" height="50" className="rounded float-left" alt="aligment" />
             </div>
             <h3> {i18n.t("navigation.countries")}</h3>  
-            <section>  
-              <div className="table-responsive text-nowrap">
-                  <table id="tablePreview" className="table table-sm table-hover">               
+            <small>
+            <section >  
+              <div className="table-responsive-sm text-nowrap">
+                  <table id="tablePreview" className="table table-hover thread-dark">               
                     <thead>
                         <tr>
-                        <th>{i18n.t("countries.name")}</th>
                         <th>{i18n.t("countries.flag")}</th>
+                        <th>{i18n.t("countries.name")}</th>
+                       
                         <th>{i18n.t("countries.nativeName")}</th>
-                        <th>{i18n.t("countries.alpha2Code")}</th>
-                        <th>{i18n.t("countries.callingCodes")}</th>
-                        <th>{i18n.t("countries.capital")}</th>
-                        <th>{i18n.t("countries.region")}</th>
-                        <th>{i18n.t("countries.subregion")}</th>
-                        <th>{i18n.t("countries.population")}</th>
-                        <th>{i18n.t("countries.currenciesSymbol")}</th>
+                        <th>{i18n.t("countries.alpha2Code")}|{i18n.t("countries.capital")}</th>
+                                   
                         <th>{i18n.t("countries.currenciesName")}</th>
+                        
                         </tr>
                     </thead>         
                     <tbody>
                         {this.state.countries.map(country => (
                           <tr  key={country.name}>
-                            <th scope="row">{country.name}</th>
-                                <td> <div className="logo">
-                                      <img src={country.flag} width="10" height="70" className="img-thumbnail" />
-                                    </div>
+                            <th scope="row"><div className="logo">
+                                      <img src={country.flag} width="80" height="50" className="img-thumbnail" />
+                                    </div></th>
+                                <td width="5%"> {country.name} 
                                 </td>
-                                <td>{country.nativeName}</td>
-                                <td>{country.alpha2Code}</td>
-                                <td>{country.callingCodes}</td>
-                                <td>{country.capital}</td>
-                                <td>{country.region}</td>
-                                <td>{country.subregion}</td>
-                                <td>{country.population}</td>
-                                <td>{country.currencies.map(function(nodes) {
-                                        return <div key={nodes.code}> {nodes.symbol } </div>
+                                <td width="30%">{country.nativeName}</td>
+                                <td width="10%">{country.alpha2Code}|{country.capital}</td>
+                                                          
+                                <td width="10%">{country.currencies.map(function(nodes) {
+                                        return <div key={nodes.code}> {nodes.symbol } |  {nodes.name} </div>
                                     })}  
                                 </td>
-                                <td>{country.currencies.map(function(nodes) {
-                                        return <div key={nodes.code}> {nodes.name}</div>
-                                    })}  
-                                </td>  
+                              
                           </tr>                     
                         ))}                     
                     </tbody>
                     <tfoot>
                        <tr>
+                       <th>{i18n.t("countries.flag")}</th>
                           <th>{i18n.t("countries.name")}</th>
-                          <th>{i18n.t("countries.flag")}</th>
+                         
                           <th>{i18n.t("countries.nativeName")}</th>
-                          <th>{i18n.t("countries.alpha2Code")}</th>
-                          <th>{i18n.t("countries.callingCodes")}</th>
-                          <th>{i18n.t("countries.capital")}</th>
-                          <th>{i18n.t("countries.region")}</th>
-                          <th>{i18n.t("countries.subregion")}</th>
-                          <th>{i18n.t("countries.population")}</th>
-                          <th>{i18n.t("countries.population")}</th>
-                          <th>{i18n.t("countries.currenciesSymbol")}</th>
-                          <th>{i18n.t("countries.currenciesName")}</th>                          
+                          <th>{i18n.t("countries.alpha2Code")}|{i18n.t("countries.capital")}</th>                         
+                          
+                                  
+                          <th>{i18n.t("countries.currenciesName")}</th>
+                                                   
                         </tr>
                     </tfoot>
                   </table>
               </div>
-            </section>  
+            </section> 
+            </small> 
         </Container>
       </div>
     );

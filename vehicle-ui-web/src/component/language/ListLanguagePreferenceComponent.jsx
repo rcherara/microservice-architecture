@@ -29,7 +29,7 @@ class ListLanguagePreferenceComponent extends Component {
         <AppNavbar />
         <Container fluid> 
             <div className="float-right">
-              dddd
+              photo
             </div>
             <h3>{i18n.t("navigation.language")}</h3>
             <section>  
@@ -49,12 +49,12 @@ class ListLanguagePreferenceComponent extends Component {
                     {this.state.languages.map(language => (
                         <tr  key={language.id}>
                         <th scope="row">{language.id}</th>
-                        <td>{language.language_code}</td>
+                        <td>{language.code}</td>
                         <td>{language.name}</td>
                         <td>{language.name_in_native_language}</td>
                         <td>{language.date_format}</td>
                         <td>{language.currency}</td>
-                        <td>{language.mileage}</td>
+                   
                       </tr>
                         ))}                     
                     </tbody>
