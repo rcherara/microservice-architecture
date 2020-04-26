@@ -6,7 +6,7 @@ const MESSAGE_API_BASE_URL = 'http://localhost:8081/api/message';
 
 const headers = {
 
-    'Accept-Language': 'fr',
+    'Accept-Language': 'ar',
   };
  
    /* 'Content-Type': 'application/json',
@@ -26,8 +26,6 @@ class ApiServiceVehicle {
           } catch (e) {
             console.log(`😱 Axios request failed: ${e}`);
           }
-
-        
     }
 
     deleteVehicle(vehicleId) {
@@ -44,7 +42,10 @@ class ApiServiceVehicle {
     fetchMessageByName(messageName) {
         return axios.get(MESSAGE_API_BASE_URL + '/' + messageName, {headers});
     }
-
+    fetchTime() {
+        return axios.get(MESSAGE_API_BASE_URL + '/api/time', {headers});
+    }
+    
 }
 
 export default new ApiServiceVehicle();

@@ -46,7 +46,7 @@ class App extends Component {
           <Route path='/vehicles' exact={true} component={VehicleList}/>
           <Route path='/vehicle/:id' component={VehicleEdit}/>
           <Route path="/add-vehicle" component={AddVehicleComponent} />
-          <Route path="/edit-vehicle:id" component={EditVehicleComponent} />
+          <Route path="/edit-vehicle/:id" component={EditVehicleComponent} />
           <Route path="/list-vehicles" component={ListVehicleComponent} />
           <Route path="/list-languages" component={ListLanguagePreferenceComponent} />
           <Route path="/list-countries" component={ListCountriesComponent} />

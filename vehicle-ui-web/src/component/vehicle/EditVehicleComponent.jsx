@@ -81,8 +81,7 @@ class EditUVehicleComponent extends Component {
                 this.props.history.push('/vehicles');
             });
     }
-
-
+    
     render() {
         const title = <h2> {i18n.t("update.vehicle")}</h2>;
         return <div>
@@ -90,7 +89,7 @@ class EditUVehicleComponent extends Component {
           <Container>
             {title}
             <Form onSubmit={this.handleSubmit}>
-            <div className="row">
+              <div className="row">
                   <FormGroup className="col-md-4 mb-3">
                     <Label for="name">Name {i18n.t("add.vehicle")}'</Label>
                     <Input type="text" name="name" id="name" value={this.state.name || ''}
@@ -106,8 +105,7 @@ class EditUVehicleComponent extends Component {
                     <Input type="text" name="vin" id="vin" value={this.state.vin || '' }
                           readOnly={true}  onChange={this.handleChange} autoComplete="vin"/>
                   </FormGroup>
-              </div>
-    
+               </div>
               <div className="row">
                 <FormGroup className="col-md-4 mb-3">
                   <Label for="colour">Color</Label>
@@ -125,18 +123,14 @@ class EditUVehicleComponent extends Component {
                   <Input type="text" name="price" id="price" value={this.state.price || ''}
                          onChange={this.handleChange} autoComplete="price"/>
                 </FormGroup>
-             </div>
-    
-             <div className="row">
+              </div>    
+              <div className="row">
                 <FormGroup className="col-md-4 mb-3">
                   <Label for="model">Model</Label>
                   <Input type="text" name="model" id="model" value={this.state.model || ''}
                          onChange={this.handleChange} autoComplete="model"/>
                 </FormGroup>
-    
                 <FormGroup className="col-md-4 mb-3">
-    
-    
                 </FormGroup>
                 <FormGroup className="col-md-4 mb-3">
                   <Label for="location">Location</Label>
@@ -164,10 +158,8 @@ class EditUVehicleComponent extends Component {
                   <Input type="text" name="cost" id="cost" value={this.state.cost || ''}
                          readOnly={true} onChange={this.handleChange} autoComplete="cost"/>
                 </FormGroup>
-    
-             </div>
-    
-             <div className="row">
+              </div> 
+              <div className="row">
                 <FormGroup className="col-md-4 mb-3">
                   <Label for="numOfWindows">Model</Label>
                   <Input type="text" name="numOfWindows" id="numOfWindows" value={this.state.numOfWindows || ''}
@@ -176,18 +168,15 @@ class EditUVehicleComponent extends Component {
                 <FormGroup className="col-md-4 mb-3">
                   <Label for="electric">Electric</Label>
                   <Input type="text" name="electric" id="electric" value={this.state.electric || ''}
-                         onChange={this.handleChange} autoComplete="electric"/>
-                                
-                </FormGroup>
-                
+                         onChange={this.handleChange} autoComplete="electric"/>                             
+                </FormGroup>           
                 <FormGroup className="col-md-4 mb-3">
                   <Label for="brand">Brand</Label>
                   <Input type="text" name="brand" id="brand" value={this.state.brand || ''}
                          onChange={this.handleChange} autoComplete="brand"/>
                 </FormGroup>
-             </div>
-    
-             <div className="row">
+              </div>  
+              <div className="row">
                 <FormGroup className="col-md-4 mb-3">
                   <Label for="tag">Engine</Label>
                   <Input type="text" name="engine" id="engine" value={this.state.engine || ''}
@@ -196,8 +185,7 @@ class EditUVehicleComponent extends Component {
                 <FormGroup className="col-md-4 mb-3">
                   <Label for="type">Type</Label>
                   <Input type="text" name="type" id="type" value={this.state.type || ''}
-                         onChange={this.handleChange} autoComplete="type"/>
-                                
+                         onChange={this.handleChange} autoComplete="type"/>                              
                 </FormGroup>
                 <FormGroup className="col-md-4 mb-3">
                   <Label for="tyre">Tyre</Label>
@@ -205,7 +193,7 @@ class EditUVehicleComponent extends Component {
                          onChange={this.handleChange} autoComplete="tyre"/>
                   <input type="file" onChange={this.handleFileChange}/>
                 </FormGroup>
-             </div>
+              </div>
               <FormGroup>
                 <Button variant="outline-primary" color="primary" type="submit">Save</Button>{' '}
                 <Button color="secondary" tag={Link} to="/list-vehicles">Cancel</Button>

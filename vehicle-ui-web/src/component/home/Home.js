@@ -6,16 +6,17 @@ import { Link } from "react-router-dom";
 import { Button, Container, Label } from "reactstrap";
 import i18n from "../../config/i18n";
 import { strings } from "../../config/i18n";
-import { FaHighlighter, FaFlag, FaGlobeAfrica } from 'react-icons/fa';
- 
+import { FaHighlighter, FaFlag, FaGlobeAfrica, FaArrowCircleRight } from 'react-icons/fa';
+import ApiServiceVehicle from "../../service/ApiServiceVehicle";
 class Home extends Component {
-  state = { languages: [] };
+  state = { languages: [],timeFromBackend:'' };
 
   componentDidMount() {
     setInterval(this.backendTime, 1000);
     setInterval(this.VehicleCount, 1000);
     setInterval(this.MessageFromServer, 1000);
     document.title = i18n.t("home.welcome");
+    
 
   }
 
@@ -39,11 +40,12 @@ class Home extends Component {
         this.setState({ VehicleCount: VehicleCount });
       });
   };
+ 
   MessageFromServer = () => {
     fetch("/api/message?msg=welcome",{
       method: 'GET', // or 'PUT'
       headers: {
-        'Accept-Language': '{i18n.locale }',    
+        'Accept-Language': '{this.i18n.locale }',    
       }
     })
       .then(response => response.text())
@@ -87,11 +89,11 @@ class Home extends Component {
         
           <i class="fas fa-thumbs-up"></i> <Label>{strings('home.manage','')}</Label>
           <br></br>      
-          <h1>
-            {i18n.t("home.count", {countVehicles: this.state.VehicleCount})}
-          </h1>
-          <Label class="fas fa-bars">Time from API Vehicle backend Server : {this.state.backendTime}</Label>
-        </Container>
+          
+            <FaArrowCircleRight /> {i18n.t("home.count", {countVehicles: this.state.VehicleCount})}
+            <br></br> 
+            <FaArrowCircleRight />  <Label class="fas fa-bars">1. Time from API Vehicle backend Server : {this.state.backendTime}</Label>
+         </Container>
         
         <Footer />
       </div>

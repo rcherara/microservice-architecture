@@ -4,17 +4,10 @@ import ApiServiceVehicle from "../../service/ApiServiceVehicle";
 import { Button, Container } from "reactstrap";
 import i18n from '../../config/i18n';
 import AppNavbar from "../containers/AppNavbar";
-import PropTypes from 'prop-types';
-import en from "../../locales/en";
-import ar from "../../locales/ar";
-import { setTranslations, setDefaultLanguage, setLanguageCookie, setLanguage, translate,} from 'react-switch-lang';
-
-// Do this two lines only when setting up the application
-setTranslations({ en, ar});
-setDefaultLanguage(i18n.locale);
-setLanguage(i18n.locale);
-// If you want to remember selected language
-setLanguageCookie();
+import {  FaArrowCircleRight } from 'react-icons/fa';
+ 
+ 
+ 
 class ListVehicleComponent extends Component {
   constructor(props) {
     super(props);
@@ -25,10 +18,9 @@ class ListVehicleComponent extends Component {
     this.addVehicle = this.addVehicle.bind(this);
     this.reloadVehicleList = this.reloadVehicleList.bind(this);
   }
-  handleSetLanguage = (key) => () => {
-    setLanguage(key);
-  };
+ 
   componentDidUpdate(prevProps) {
+
 
   }
   componentDidMount(prevProps) {
@@ -52,7 +44,7 @@ class ListVehicleComponent extends Component {
   }
   editVehicle(id) {
     window.localStorage.setItem("id", id);
-    this.props.history.push("/edit-vehicle");
+    this.props.history.push("/edit-vehicle/:"+{id});
   }
   viewVehicle(id) {
     window.localStorage.setItem("vehicleId", id);
@@ -63,17 +55,17 @@ class ListVehicleComponent extends Component {
   }
   
   render() {
-    const myLanguage = i18n.locale;
+     
     return (
       <div>
-        <AppNavbar/>
+        <AppNavbar  />
         <Container fluid>
             <div className="float-right">
               <Button color="success" onClick={() => this.addVehicle()}  >
               {i18n.t("add.vehicle")} 
               </Button>
             </div>
-            <h3 >{i18n.t("words.vehicles")} myLanguage =  {myLanguage} | locale = {i18n.locale}-</h3>
+            <h3 >{i18n.t("words.vehicles")}   <FaArrowCircleRight />  i18n.locale = {i18n.locale}-</h3>
             <section>  
               <div className="table-responsive text-nowrap">
                   <table id="tablePreview" className="table table-sm table-hover">
@@ -109,9 +101,9 @@ class ListVehicleComponent extends Component {
                         <td>{vehicle.cost}</td>
                         <td>{vehicle.price}</td>
                         <td>{vehicle.position}</td>
-                        <td><button type="button" color="success"  className="btn btn-info"   onClick={() => this.viewVehicle(vehicle.id)} ><span className="ico"></span>{i18n.t("words.view")}</button></td>
-                        <td><button type="button" color="success" className="btn btn-success" onClick={() => this.editVehicle(vehicle.id)}   >{i18n.t("words.update")}</button></td>
-                        <td><button type="button" color="success" className="btn btn-danger"  onClick={() => this.deleteVehicle(vehicle.id)} >{i18n.t("words.delete")}</button></td>
+                        <td><button type="button" color="success"  className="btn btn-info"    onClick={() => this.viewVehicle(vehicle.id)} ><span className="ico"></span>{i18n.t("words.view")}</button></td>
+                        <td><button type="button" color="success"  className="btn btn-success" onClick={() => this.editVehicle(vehicle.id)}   >{i18n.t("words.update")}</button></td>
+                        <td><button type="button" color="success"  className="btn btn-danger"  onClick={() => this.deleteVehicle(vehicle.id)} >{i18n.t("words.delete")}</button></td>
                         </tr>
                         ))}
                       
@@ -141,10 +133,5 @@ class ListVehicleComponent extends Component {
     );
   }
 }
-//export default withRouter(ListVehicleComponent);
-
-ListVehicleComponent.propTypes = {
-  t: PropTypes.func.isRequired,
-};
  
-export default translate(ListVehicleComponent);
+export default  ListVehicleComponent;

@@ -5,7 +5,7 @@ import es from '../locales/es.json';
 import ar from '../locales/ar.json';
 import it from '../locales/it.json';
 import fr from '../locales/fr.json';
-
+ 
 export default i18n;
 
 
@@ -17,10 +17,10 @@ export default i18n;
 
   export const strings = (name, params = {}) => i18n.t(name, params);
   
-  export const switchLanguage = (lang, component) => {
+  export const switchLanguage = (lang,component) => {
     i18n.locale = lang;
-    //this.forceUpdate();
-    //component.forceUpdate();
+     
+  
   };
  
 // get the language from the settings reducer

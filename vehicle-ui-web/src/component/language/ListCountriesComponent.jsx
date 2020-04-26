@@ -12,8 +12,10 @@ class ListCountriesComponent extends Component {
     this.state = { countries: [] };
     this.reloadLanguageList = this.reloadLanguageList.bind(this);
   }
+  
   componentDidUpdate(prevProps) {
   }
+ 
   componentDidMount(prevProps) {
     this.reloadLanguageList();     
   }
@@ -29,7 +31,7 @@ class ListCountriesComponent extends Component {
         <Container fluid>   
             <div className="float-right">
                 <img src={CountryIcon} width="50" height="50" className="rounded float-left" alt="aligment" />
-            </div>
+            </div>         
             <h3> {i18n.t("navigation.countries")}</h3>  
             <small>
             <section >  
@@ -38,20 +40,17 @@ class ListCountriesComponent extends Component {
                     <thead>
                         <tr>
                         <th>{i18n.t("countries.flag")}</th>
-                        <th>{i18n.t("countries.name")}</th>
-                       
+                        <th>{i18n.t("countries.name")}</th>                     
                         <th>{i18n.t("countries.nativeName")}</th>
-                        <th>{i18n.t("countries.alpha2Code")}|{i18n.t("countries.capital")}</th>
-                                   
-                        <th>{i18n.t("countries.currenciesName")}</th>
-                        
+                        <th>{i18n.t("countries.alpha2Code")}|{i18n.t("countries.capital")}</th>                                  
+                        <th>{i18n.t("countries.currenciesName")}</th>                       
                         </tr>
                     </thead>         
                     <tbody>
                         {this.state.countries.map(country => (
                           <tr  key={country.name}>
                             <th scope="row"><div className="logo">
-                                      <img src={country.flag} width="80" height="50" className="img-thumbnail" />
+                                      <img src={country.flag} width="50" height="30" className="img-thumbnail" />
                                     </div></th>
                                 <td width="5%"> {country.name} 
                                 </td>
@@ -61,8 +60,7 @@ class ListCountriesComponent extends Component {
                                 <td width="10%">{country.currencies.map(function(nodes) {
                                         return <div key={nodes.code}> {nodes.symbol } |  {nodes.name} </div>
                                     })}  
-                                </td>
-                              
+                                </td>                          
                           </tr>                     
                         ))}                     
                     </tbody>
@@ -70,13 +68,9 @@ class ListCountriesComponent extends Component {
                        <tr>
                        <th>{i18n.t("countries.flag")}</th>
                           <th>{i18n.t("countries.name")}</th>
-                         
                           <th>{i18n.t("countries.nativeName")}</th>
-                          <th>{i18n.t("countries.alpha2Code")}|{i18n.t("countries.capital")}</th>                         
-                          
-                                  
-                          <th>{i18n.t("countries.currenciesName")}</th>
-                                                   
+                          <th>{i18n.t("countries.alpha2Code")}|{i18n.t("countries.capital")}</th>                            
+                          <th>{i18n.t("countries.currenciesName")}</th>                           
                         </tr>
                     </tfoot>
                   </table>
